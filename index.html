@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="PortfolioApp" >
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>
+		Sara Cagle Portfolio
+	</title>
+
+<link href="styles/mainStyle.css" rel="stylesheet" type='text/css'>
+<link href="styles/about.css" rel="stylesheet" type='text/css'>
+<link href="styles/resume.css" rel="stylesheet" type='text/css'>
+<link href="styles/project.css" rel="stylesheet" type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'><!--Body, serif font-->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> <!--Header, sans-serif font-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" ><!--For the contact icons-->
+
+
+
+</head>
+<body id="page-top" onscroll="navTransparencyChange()">
+
+
+
+<div id="content">
+
+
+<nav id="newnavbar">   
+    <p>Sara Cagle</p>
+    <ul ng-controller="navController as nav" id="menu">
+    <!--These links are loaded in "backwards" since they float right to left, 
+    so the ones on top in the code are furthest to the right-->
+        <li>
+            <a href="files/Cagle,SaraResume.pdf" download>Resume</a>
+        </li>
+        <li ng-repeat="link in nav.links" class="clickForScroll">
+            <a class="nav-link" href="{{link.URL}}" >{{link.linkName}} </a>
+        </li>
+
+    </ul>
+    <label for="show-menu" class="show-menu" id="show-menu"><img src="/images/menu.svg" alt="Menu"></label>
+</nav>
+
+
+<header>
+    <img class="banner" src="images/qilin.jpg" />
+    <img class="face" src="images/faceSquare.jpg" alt="Sara Cagle" />
+    <div class="name" id="scrollTo"><!--Sara Cagle--></div>
+    
+</header>
+
+
+<!--Contact: scagle6@gatech.edu, WeChat, LinkedIn, GitHub, Atlanta, GA</div-->
+
+
+<div class="slide-container">
+    <div ng-view  id="slide" class="slide"></div>
+</div> <!--slide-container div-->
+<div ng-controller="contentController as content"></div>
+<ng-include src="'templates/footer.html'"></ng-include>
+
+</div> <!--content div-->
+
+</body>
+
+<!--scripts go here-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.js"></script>
+
+
+<script src="js/controllers.js"></script>
+<script src="js/script.js"></script>
+
+
+</html>
+
