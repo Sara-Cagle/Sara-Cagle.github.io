@@ -53,12 +53,25 @@ navTransparencyChange = function(){
 * Toggles the menu on the click of the hamburger 'more' icon. Works via CSS/
 */
 document.getElementById('show-menu').onclick = function(){
-	console.log("clicked");
 	if(document.getElementById('menu').style.display === "block"){
 		document.getElementById('menu').style.display = "none";
 	}
 	else{
 		document.getElementById('menu').style.display = "block";
+	}
+};
+
+/**
+* Closes the menu if a nav item (anywhere in the ul) is clicked (while in compressed mode).
+* If in desktop mode, nothing should happen.
+* This works alongside the above function that will toggle the menu closed if you click on the hamburger button.
+*/
+document.getElementById('menu').onclick = function(){
+	screenWidth = window.innerWidth;
+	if(screenWidth<768){ //if screen is small and if the display is open
+		if(document.getElementById('menu').style.display === "block"){
+			document.getElementById('menu').style.display = "none"; //set it to none
+		}
 	}
 };
 
