@@ -68,9 +68,11 @@ document.getElementById('show-menu').onclick = function(){
 */
 document.getElementById('menu').onclick = function(){
 	screenWidth = window.innerWidth;
+	console.log("You've clicked the menu!");
 	if(screenWidth<768){ //if screen is small and if the display is open
 		if(document.getElementById('menu').style.display === "block"){
 			document.getElementById('menu').style.display = "none"; //set it to none
+			console.log("Menu has closed.");
 		}
 	}
 };
