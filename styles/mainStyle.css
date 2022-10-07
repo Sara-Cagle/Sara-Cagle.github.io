@@ -33,10 +33,57 @@ a:hover{
 /*
 * Contains the face bubble and banner
 */
-header{
+/* header{
 	position: relative;
-	background-image: url(../images/qilin.jpg);
-}
+} */
+
+.header {
+	max-height: 600px;
+	/*max-width: 95%;*/
+	margin-top: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+	border-width: 10px;
+	border-color: rgba(39, 39, 39, 0.84);
+	border-style: solid;
+	/* border-top-style: solid;
+	border-top-width: 10px;
+	border-top-color: rgba(39, 39, 39, 0.84);
+	border-right-style: solid;
+	border-right-width: 10px;
+	border-right-color: rgba(39, 39, 39, 0.84);
+	border-bottom-style: solid;
+	border-bottom-width: 10px;
+	border-bottom-color: rgba(39, 39, 39, 0.84);
+	border-left-style: solid;
+	border-left-width: 10px;
+	border-left-color: rgba(39, 39, 39, 0.84); */
+	background-color: #272727;
+	background-image: url("../images/qilin.jpg");
+	background-position: 50% 35%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-clip: border-box;
+	object-fit: fill;
+	/*-----*/
+	display: flex;
+	max-width: 85%;
+	flex-direction: column;
+	background-position: 50% 20%;
+	background-clip: border-box;
+  }
+  
+  .hero-section.home-page-banner {
+	display: flex;
+	max-width: 85%;
+	flex-direction: column;
+	background-position: 50% 20%;
+	background-clip: border-box;
+  }
 
 /*
 * My face bubble, sits absolutely compared to the header it sits within
