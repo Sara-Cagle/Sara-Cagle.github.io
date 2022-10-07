@@ -58,15 +58,16 @@ header {
 */
 header .face{
 	margin:auto;
-	height: 170px;
-	width: 170px;
-	display:block;
+	/* height: 170px;
+	width: 170px; */
 	border-radius: 50%;
 	border: 0.3em solid white;
 	position: absolute;
-	top: 55%;
+	top: 250px;
 	left:0;
 	right:0;
+	max-width: 15%;
+	min-width: 170px;
 }
 
 /*
