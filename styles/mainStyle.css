@@ -38,32 +38,18 @@ a:hover{
 } */
 
 header {
-	max-height: 600px;
-	/*max-width: 95%;*/
-	margin-top: 100px;
+	/* max-height: 600px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 0px; */
 	
-	border-width: 10px;
+	/* border-width: 10px;
 	border-color: rgba(39, 39, 39, 0.84);
 	border-style: solid;
-	/* border-top-style: solid;
-	border-top-width: 10px;
-	border-top-color: rgba(39, 39, 39, 0.84);
-	border-right-style: solid;
-	border-right-width: 10px;
-	border-right-color: rgba(39, 39, 39, 0.84);
-	border-bottom-style: solid;
-	border-bottom-width: 10px;
-	border-bottom-color: rgba(39, 39, 39, 0.84);
-	border-left-style: solid;
-	border-left-width: 10px;
-	border-left-color: rgba(39, 39, 39, 0.84); */
-	background-color: #272727;
+	background-color: #272727; */
 	background-image: url("../images/qilin.jpg");
-	background-position: 50% 35%;
+	background-position: 50% 35%; /* Puts the interesting part of the picture in frame */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
@@ -71,18 +57,11 @@ header {
 	object-fit: fill;
 	/*-----*/
 	display: flex;
-	max-width: 85%;
+	max-width: 100%;
+	min-height: 580px; /* Probably flex related, but you have to have the min height set or it will have a height of 0, even if you specify a height*/
 	flex-direction: column;
 	background-position: 50% 20%;
-	background-clip: border-box;
-  }
-  
-  .hero-section.home-page-banner {
-	display: flex;
-	max-width: 85%;
-	flex-direction: column;
-	background-position: 50% 20%;
-	background-clip: border-box;
+	/*background-clip: border-box;*/
   }
 
 /*
