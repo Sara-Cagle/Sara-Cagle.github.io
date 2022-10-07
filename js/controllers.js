@@ -17,6 +17,9 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 		},
 		{linkName: 'About',
 		URL: '#/about',
+		},
+		{linkName: 'HCDE 533',
+		URL: '#/hcde533'
 		}
 	]
 }])
@@ -36,8 +39,12 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 .config(function($routeProvider) { //routing needs to be on a server in order to run
 	$routeProvider
 	.when('/',{
-		templateUrl: 'views/about.html',
+		templateUrl: 'views/hcde533.html',
 	})
+	.when('/hcde533', {
+		templateUrl: 'views/hcde533.html',
+		controller: 'contentController',
+		})
 	.when('/about', {
 	templateUrl: 'views/about.html',
 	controller: 'contentController',
