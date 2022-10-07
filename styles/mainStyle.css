@@ -35,7 +35,7 @@ a:hover{
 */
 header{
 	position: relative;
-	width: auto;
+	background-image: url(../images/qilin.jpg);
 }
 
 /*
@@ -58,7 +58,7 @@ header .face{
 * The banner is designed to scale based on width
 */
 header .banner{
-	max-width:2000px;
+	max-width:100%;
 	height: auto;
 	z-index:-1;
 	text-align:center;
