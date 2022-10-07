@@ -33,35 +33,24 @@ a:hover{
 /*
 * Contains the face bubble and banner
 */
-/* header{
-	position: relative;
-} */
-
 header {
-	/* max-height: 600px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 0px;
-	padding-bottom: 0px; */
-	
-	/* border-width: 10px;
-	border-color: rgba(39, 39, 39, 0.84);
-	border-style: solid;
-	background-color: #272727; */
 	background-image: url("../images/qilin.jpg");
-	background-position: 50% 35%; /* Puts the interesting part of the picture in frame */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-clip: border-box;
 	object-fit: fill;
-	/*-----*/
 	display: flex;
 	max-width: 100%;
 	min-height: 580px; /* Probably flex related, but you have to have the min height set or it will have a height of 0, even if you specify a height*/
 	flex-direction: column;
-	background-position: 50% 20%;
-	/*background-clip: border-box;*/
+	background-position: 50% 20%; /* Puts the interesting part of the picture in frame */
+
+	/* Border style the same as webflow if we want to implement it here */
+	/* border-width: 10px;
+	border-color: rgba(39, 39, 39, 0.84);
+	border-style: solid;
+	background-color: #272727; */
   }
 
 /*
