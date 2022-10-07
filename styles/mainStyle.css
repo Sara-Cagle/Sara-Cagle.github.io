@@ -58,7 +58,7 @@ header .face{
 * The banner is designed to scale based on width
 */
 header .banner{
-	max-width:100%;
+	max-width:2000px;
 	height: auto;
 	z-index:-1;
 	text-align:center;
