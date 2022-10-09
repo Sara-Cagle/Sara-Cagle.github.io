@@ -124,7 +124,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 				controller: 'contentController',
 			})
 			.when('/projecta1', {
-				template: '../views/hcde533/a1.html',
+				template: 'views/hcde533/a1.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a2', {
