@@ -50,9 +50,9 @@
 <h1>Projects</h1>
 
 <span ng-controller="hcdeProjectController as hcdeProjects">
-    <div ng-repeat="projects in hcdeProjects.projects" class="groupedText">
+    <div ng-repeat="project in hcdeProjects.projects" class="groupedText">
         <p>
-            <b>{{projects.title}}</b>
+            <b>{{project.title}}</b>
             {{project.description}}
         <div class="buttonHolder">
             <div class="gitHubButton">
