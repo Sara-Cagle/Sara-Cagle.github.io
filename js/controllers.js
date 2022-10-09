@@ -38,6 +38,58 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 			$scope.showModal = !$scope.showModal;
 		};
 
+		/* HCDE 533 projects */
+		this.projects = [
+			{
+				id: 'a1',
+				title: 'A1 - Modeling & Laser Cutting - Cardboard Centipede',
+				description: 'Two pieces designed to be interlocked and repeatable to create a cardboard model of a centipede. Pieces were modeled in Rhino 7 and then laser cut on an Epilog Laser.',
+				URL: '#/projects/a1'
+			},
+			{
+				id: 'a2',
+				title: 'A2 - 3D Printing',
+				description: 'TBD',
+				URL: '#/projects/a2'
+			},
+			{
+				id: 'a3',
+				title: 'A3 - Parametric Modeling with Grasshopper',
+				description: 'TBD',
+				URL: '#/projects/a3'
+			},
+			{
+				id: 'a4',
+				title: 'A4 - Mesh & Lamps Part 1',
+				description: 'TBD',
+				URL: '#/projects/a4'
+			},
+			{
+				id: 'a5',
+				title: 'A5 - Molding & Casting Part 1, Lamps Part 2',
+				description: 'TBD',
+				URL: '#/projects/a5'
+			},
+			{
+				id: 'a6',
+				title: 'A6 - Molding & Casting Part 2',
+				description: 'TBD',
+				URL: '#/projects/a6'
+			},
+			{
+				id: 'a7',
+				title: 'A7 - Final Project Proposal',
+				description: 'TBD',
+				URL: '#/projects/a7'
+			},
+			{
+				id: 'a8',
+				title: 'A8 - Final Project',
+				description: 'TBD',
+				URL: '#/projects/a8'
+			},
+		]
+
 	}])
 
 	.config(function ($routeProvider) { //routing needs to be on a server in order to run
