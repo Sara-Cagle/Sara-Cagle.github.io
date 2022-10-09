@@ -124,35 +124,35 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 				controller: 'contentController',
 			})
 			.when('/projecta1', {
-				template: 'views/hcde533/a1.html',
+				templateUrl: 'views/hcde533/a1.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a2', {
-				template: 'views/hcde533/a2.html',
+				templateUrl: 'views/hcde533/a2.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a3', {
-				template: 'views/hcde533/a3.html',
+				templateUrl: 'views/hcde533/a3.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a4', {
-				template: 'views/hcde533/a4.html',
+				templateUrl: 'views/hcde533/a4.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a5', {
-				template: 'views/hcde533/a5.html',
+				templateUrl: 'views/hcde533/a5.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a6', {
-				template: 'views/hcde533/a6.html',
+				templateUrl: 'views/hcde533/a6.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a7', {
-				template: 'views/hcde533/a7.html',
+				templateUrl: 'views/hcde533/a7.html',
 				controller: 'contentController'
 			})
 			.when('/hcde533/a8', {
-				template: 'views/hcde533/a8.html',
+				templateUrl: 'views/hcde533/a8.html',
 				controller: 'contentController'
 			});
 	})
