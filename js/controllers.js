@@ -48,7 +48,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 				id: 'a1',
 				title: 'A1 - Modeling & Laser Cutting - Cardboard Centipede',
 				description: 'Two pieces designed to be interlocked and repeatable to create a cardboard model of a centipede. Pieces were modeled in Rhino 7 and then laser cut on an Epilog Laser.',
-				URL: '#/projects/a1'
+				URL: '#/projecta1'
 			},
 			{
 				id: 'a2',
@@ -123,7 +123,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 				templateUrl: 'views/hcde533.html',
 				controller: 'contentController',
 			})
-			.when('/projects/a1', {
+			.when('/projecta1', {
 				template: '../views/hcde533/a1.html',
 				controller: 'contentController'
 			})
