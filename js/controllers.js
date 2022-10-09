@@ -38,6 +38,10 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 			$scope.showModal = !$scope.showModal;
 		};
 
+
+	}])
+
+	.controller('hcdeProjectController', ['$scope', function ($scope, $route, $routeParams) {
 		/* HCDE 533 projects */
 		this.projects = [
 			{
@@ -89,6 +93,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
 				URL: '#/projects/a8'
 			},
 		]
+
 
 	}])
 

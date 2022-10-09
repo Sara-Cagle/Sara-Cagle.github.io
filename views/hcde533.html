@@ -49,14 +49,16 @@
 
 <h1>Projects</h1>
 
-<div ng-repeat="projects in content.projects" class="groupedText">
-    <p>
-        <b>{{projects.title}}</b>
-        {{project.description}}
-    <div class="buttonHolder">
-        <div class="gitHubButton">
-            <a href="{{project.URL}}" title="{{project.title}}">View Project</a>
+<span ng-controller="hcdeProjectController as hcdeProjects">
+    <div ng-repeat="projects in hcdeProjects.projects" class="groupedText">
+        <p>
+            <b>{{projects.title}}</b>
+            {{project.description}}
+        <div class="buttonHolder">
+            <div class="gitHubButton">
+                <a href="{{project.URL}}" title="{{project.title}}">View Project</a>
+            </div>
         </div>
+        </p>
     </div>
-    </p>
-</div>
+</span>
