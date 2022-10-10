@@ -1,0 +1,22 @@
+{
+  "name": "sara-cagle.github.io",
+  "version": "1.0.0",
+  "description": "A *long* time ago I created this website to house my digital portfolio.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sara-Cagle/Sara-Cagle.github.io.git"
+  },
+  "author": "Sara Cagle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sara-Cagle/Sara-Cagle.github.io/issues"
+  },
+  "homepage": "https://github.com/Sara-Cagle/Sara-Cagle.github.io#readme",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
