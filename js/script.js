@@ -1,5 +1,5 @@
 let screenWidth = window.innerWidth;
-let verticalPosition = window.pageYOffset | document.body.scrollTop;
+let verticalPosition = window.pageYOffset || document.body.scrollTop;
 
 /**
 * Event Listener for resizing the window to help ensure the menu is toggled correctly for the window size.
@@ -23,7 +23,7 @@ function navTransparencyChange() {
     screenWidth = window.innerWidth;
     const element = document.getElementById('newnavbar');
     if (screenWidth >= 768) {
-        verticalPosition = window.pageYOffset | document.body.scrollTop;
+        verticalPosition = window.pageYOffset || document.body.scrollTop;
         if (verticalPosition >= 50) {
             element.style.opacity = '1';
             element.style.filter = 'alpha(opacity=100)';
