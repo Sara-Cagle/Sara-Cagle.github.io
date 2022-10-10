@@ -10,5 +10,12 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "max-len": "off",
+        "linebreak-style": "off",
+        "no-unused-vars": "warn"
     }
 }
