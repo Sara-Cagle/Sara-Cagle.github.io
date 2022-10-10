@@ -38,7 +38,7 @@ function navTransparencyChange() {
         element.style.filter = 'alpha(opacity=100)';
         element.style.borderBottom = '1px solid white';
     }
-};
+}
 
 /**
 * Toggles the menu on the click of the hamburger 'more' icon. Works via CSS/
