@@ -1,0 +1,82 @@
+<H1>A2 - Parametric Modeling in Grasshopper</H1>
+
+
+<div class="groupedText">
+    <p>
+        <b>Prompt</b> Use Grasshopper to create repeatable, interlocking designs parametrically that could be lasercut
+        out of cardboard.
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Inspiration</b> My classmates' demos of their A1 assignment inspired me to make something clean and
+        simplistic--with mostly clean being the challenging part for me.
+        But as an engineer, I was unable to sleep peacefully unless I had paramaterized the shit out of this assignment.
+        I set off to make a Grasshopper file that could create a regular <i>n</i>-gon of any reasonable size that has
+        <i>n</i> "slots" around it, with each slot centered on each side.
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Trigonometry & Slot Placement</b> Unfortunately for me, who had made an aggressive effort to block out all
+        memories of trigonometry, was confronted by a massive monster: polygons are made out of triangles. <br />
+        I knew exactly what I wanted but was struggling to get it: I needed to find the distance from the polygon center
+        to the center of its edge, move my rectangle slot that far out in one plane, and then rotate it such that it
+        touches the edge.<br />
+
+        After an embarassingly long time Googling and reviewing vocab words, I wanted to find the radius of the
+        inscribed circle of my regular polygon.<br />
+        [put screenshots here from the trig website]<br /><br />
+
+        With the correct vocab words, I was able to find and use the given formulas to calculate <i>Ri</i>. No need to
+        write a proof or simplify the expression, phew!<br />
+        But as I toggled my input parameters for polygon size, my slot never intersected with the polygon edge! Long
+        story short, I spent hours looking at math because that seems like the most likely culprit.<br />
+
+        It wasn't until reviewing the existing components in Grasshopper (with my newfound trig vocab) that I pinpointed
+        the problem: I was measuring <i>Ri</i> with what I thought was the length of the polygon side. But in
+        Grasshopper, polygons are built not with side length but with the radius size of the circumcircle! In words that
+        future me will understand: I was actually passing it the length from the center of the polygon to its point, not
+        the length of the side.<br />
+        [put screenshot here of polygon radius]
+
+        The math wasn't wrong at all--I was just using the wrong formula. Once I swapped it out based on the values I
+        had, the slots fit like a dream!
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Clusters</b> Along the way, I tried several different formulas to place the slots correctly. My engineer
+        brain rolled its eyes everytime I copy and pasted a repeat set of components. It was time to learn to save my
+        own items as components.<br />
+
+        From <a href="https://www.youtube.com/watch?v=2k2S6FCfjIc&t=395s">this video</a> I found out that custom
+        components are called clusters, and while I strongly suspect there are libraries of existing plug-and-play
+        clusters for Grasshopper that exist, I was determined to make my own for the sake of learning.<br />
+        I made a cluster for calculating <i>Ri</i> both with the radius of the circumcircle and a second cluster for
+        calculating <i>Ri</i> with the length of the polygon side. I also made a cluster for the Pythagorean theorum.
+        Basic clusters that definitely already exist in some math library.<br /><br />
+        [put link to clusters on github here]
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Grasshopper Limitations</b> My largest challenge outside of re-living trig class was bumping up against some
+        of the programmatic limitations of Grasshopper. Particularly the lack of
+    <ul>
+        <li>Dynamic input to number sliders</li>
+        <li>If/else conditionals</li>
+    </ul>
+
+    These can easily both be created in Grasshopper and saved as clusters--and people probably have--but I was annoyed
+    by the lack of function and decided I would just throw caution to the wind and let my program exist without a few
+    fail-safes. My computer science professors from undergrad are gonna kick my butt if they read this.<br />
+    That said, attention must be paid when determining the size of the polygon and slots you'd like to create. Visually
+    the results are interesting, but cut with a laser, the pieces would completely fall through.
+    [put screenshots of the pretty circles here]
+    </p>
+</div>
