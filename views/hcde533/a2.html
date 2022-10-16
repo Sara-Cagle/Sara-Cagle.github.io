@@ -87,11 +87,103 @@
         <li>If/else conditionals</li>
     </ul>
 
-    These can easily both be created in Grasshopper and saved as clusters--and people probably have--but I was annoyed
-    by the lack of function and decided I would just throw caution to the wind and let my program exist without a few
+    These can easily both be created in Grasshopper and saved as clusters--and people probably have--but I decided I
+    would just throw caution to the wind and let my program exist without a few
     fail-safes. My computer science professors from undergrad are gonna kick my butt if they read this.<br />
     That said, attention must be paid when determining the size of the polygon and slots you'd like to create. Visually
     the results are interesting, but cut with a laser, the pieces would completely fall through.
     [put screenshots of the pretty circles here]
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Laser Cutting - Fire in the Hole!</b> Using the same Epilog laser cutter and cardboard as my A1 assignment, I
+        ran
+        some cuts at 15%
+        speed and 85% power, which worked last time. Previously I had issues with a lossy backing on my cardboard so I
+        peeled the layer off prior to using the cutter, which helped immenseley. <br />
+        Since I was cutting a larger batch, I used a larger piece of cardboard to try and cut all my shapes at
+        once.<br />
+        As part of my safety training with the laser, we were warned that fire is not an "if" but a "when". I'm used to
+        seeing my paper and cardboard burn a very tiny amount, but as my larger batch finished, the shapes hadn't all
+        cut
+        out, so I decided to run the print again. And then about halfway through my second cut, a small fire started and
+        grew unexpectedly!<br />
+
+        I turned off the laser, but the fire proceeded to grow! A fire extinguisher hangs next to the machine, across
+        from a
+        sign that says "In case of fire, DON'T PANIC!!".<br />
+        I determined the fire was likely too large to go out on its own without intervention, and I wanted to limit the
+        impact before it caused damage to something other than my large sheet of cardboard, so I grabbed the
+        extinguisher
+        and a couple blasts put out the fire.<br />
+        All that time drinking coffee and zoning out at the fire extinguisher in the break room had paid off--Pull, Aim,
+        Spray, Sweep--except this fire was mostly concentrated so the sweeping was pretty limited.<br />
+        I proceeded to ensure my cardboard was no longer on fire and then cleaned the machine, emptying the bottom catch
+        tray and checking the bottom chamber with the laser belt, and finally cleaning the lenses. I then emailed
+        facilities
+        to inform them I had discharged the fire extinguisher.<br /><br />
+
+        I had run the laser cutter a hundred times before--what was different this time?! A couple things (for which I
+        have
+        concern about for the Mill...)
+    <ul>
+        <li>
+            Previously I was using small pieces of cardboard that were slightly warped. But the printing area was small
+            enough and I focused the laser on the warped section so the prints succeeded. This time I was using a piece
+            of cardboard that was almost the same size as the laser bed. This larger piece led for more room for the
+            laser to be out of focus, compared to the small piece. Even though the laser was focused, it was not focused
+            for the entirety of the piece, causing excess heat in some areas that led to the fire. <br />
+            A comment for the Mill: when training there, the staff insisted it was not a big deal if the laser wasn't
+            focused <i>perfectly</i>. I was mostly in agreement until now, and for safety's sake, I don't think the
+            staff should tell this to students.
+        </li>
+        <li>
+            I had run the same 15% speed 85% power cut twice in order to cut out my shapes. The Mill also advises this
+            approach, but in the future I will be decreasing my power/increasing my speed on a second cut. I think on
+            its own this would not have been an issue, but coupled with the warped cardboard increased the fire risk.
+        </li>
+        <li>I had a couple instances of accidental double vector lines I was cutting--keep reading.</li>
+    </ul>
+    After the fire and cleaning the laser, I tested it again and had no issues with the machine. I proceeded to use my
+    smaller pieces of cardboard and limit my area to roughly the same "warpedness" in the cardboard to ensure the laser
+    stayed focused. Everything worked fine! Lessons learned!
+    </p>
+
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Converting Between Rhino & Inkscape</b>
+        At one point my Grasshopper file only created curves in the 2D plane, but I extruded them for the assignment and
+        then tried to again break the extrusions back down for printing the face borders. In hindsite I would have
+        stopped my program at the curve creation and just exported those into the .dxf file.<br />
+        Working from the top view, I ended up selecting both the top and bottom faces to export because I could not see
+        the duplication in the 2D plane. It wasn't until I was running the laser that I noticed the laser was following
+        multiple paths agains, indicating multiple of the same vectors.<br />
+        I tried again to carefully export only one set of faces but it was extremely time consuming. Further, in
+        Inkscape, my closed paths exploded open and I had to select each path and combine them (ctrl K) to them make
+        them easier to place.<br />
+
+        So in the future:
+    <ul>
+        <li>
+            If I plan to cut, I'll stop at curves rather than extrude the shape. I can extrude the shape later either
+            with another Grasshopper step or manually.
+        </li>
+        <li>If I must export a surface from a 3D object, I need to ensure I can see all 3 planes before selecting.</li>
+        <li>For cutting, rather than lay out all pieces (curves or other) in Rhino, I will only export one since I will
+            need to process it in Inkscape anyways. Then in Inkscape I will duplicate it out after it's processed so I
+            don't need to process each item. I'll only lay out multiple shapes in Rhino if they plan to live virtually
+            in Rhino (or their placement must be exact.)</li>
+    </ul>
+    </p>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Final Result</b><br />
+        [put some pics here]
     </p>
 </div>
