@@ -91,13 +91,13 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
         ];
 
-        function getCurrProjectId() {
+        this.getCurrProjectId = () => {
             console.log(`Curr project Id: ${$location.path().substr(9)}`);
             return $location.path().substr(9);
-        }
+        };
 
         this.getPrevProjectUrl = () => {
-            const currProjectIndex = this.projects.findIndex((x) => x.id === getCurrProjectId());
+            const currProjectIndex = this.projects.findIndex((x) => x.id === this.getCurrProjectId());
             const prevIndex = currProjectIndex - 1;
             if (prevIndex >= 0) {
                 return this.projects[prevIndex].URL;
@@ -106,13 +106,17 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
         };
 
         this.getPostProjectUrl = () => {
-            const currProjectIndex = this.projects.findIndex((x) => x.id === getCurrProjectId());
+            const currProjectIndex = this.projects.findIndex((x) => x.id === this.getCurrProjectId());
             const postIndex = currProjectIndex + 1;
             if (postIndex < this.projects.length) {
                 return this.projects[postIndex].URL;
             }
             return undefined;
         };
+
+
+
+
     }])
 
     .config(($routeProvider) => { // routing needs to be on a server in order to run
