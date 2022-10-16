@@ -38,7 +38,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
         };
     }])
 
-    .controller('hcdeProjectController', ['$scope', '$location', ($scope, $location) => {
+    .controller('hcdeProjectController', ['$scope', function ($scope) {
         /* HCDE 533 projects */
         this.projects = [
             {
@@ -91,6 +91,28 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
         ];
 
+        // this.getCurrProjectId = () => {
+        //     console.log(`Curr project Id: ${$location.path().substr(9)}`);
+        //     return $location.path().substr(9);
+        // };
+
+        // this.getPrevProjectUrl = () => {
+        //     const currProjectIndex = this.projects.findIndex((x) => x.id === this.getCurrProjectId());
+        //     const prevIndex = currProjectIndex - 1;
+        //     if (prevIndex >= 0) {
+        //         return this.projects[prevIndex].URL;
+        //     }
+        //     return undefined;
+        // };
+
+        // this.getPostProjectUrl = () => {
+        //     const currProjectIndex = this.projects.findIndex((x) => x.id === this.getCurrProjectId());
+        //     const postIndex = currProjectIndex + 1;
+        //     if (postIndex < this.projects.length) {
+        //         return this.projects[postIndex].URL;
+        //     }
+        //     return undefined;
+        // };
     }])
 
     .config(($routeProvider) => { // routing needs to be on a server in order to run
