@@ -33,12 +33,12 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             * For toggling the WeChat QR code modal.
             */
         $scope.showModal = false;
-        $scope.openModal = function () {
+        $scope.openModal = () => {
             $scope.showModal = !$scope.showModal;
         };
     }])
 
-    .controller('hcdeProjectController', ['$scope', function ($scope, $route, $routeParams) {
+    .controller('hcdeProjectController', ['$scope', function ($scope, $route, $routeParams, $location) {
         /* HCDE 533 projects */
         this.projects = [
             {
@@ -90,6 +90,29 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
                 URL: '#/hcde533/a8',
             },
         ];
+
+        function getCurrProjectId() {
+            console.log(`Curr project Id: ${$location.path().substr(9)}`);
+            return $location.path().substr(9);
+        }
+
+        this.getPrevProjectUrl = () => {
+            const currProjectIndex = this.projects.findIndex((x) => x.id === getCurrProjectId());
+            const prevIndex = currProjectIndex - 1;
+            if (prevIndex >= 0) {
+                return this.projects[prevIndex].URL;
+            }
+            return undefined;
+        };
+
+        this.getPostProjectUrl = () => {
+            const currProjectIndex = this.projects.findIndex((x) => x.id === getCurrProjectId());
+            const postIndex = currProjectIndex + 1;
+            if (postIndex < this.projects.length) {
+                return this.projects[postIndex].URL;
+            }
+            return undefined;
+        };
     }])
 
     .config(($routeProvider) => { // routing needs to be on a server in order to run
