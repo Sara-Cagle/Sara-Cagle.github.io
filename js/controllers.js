@@ -91,12 +91,6 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
         ];
 
-        this.getCurrProjectId = () => {
-            console.log(`Curr project Id: ${$location.path().substr(9)}`);
-            return $location.path().substr(9);
-        };
-
-
     }])
 
     .config(($routeProvider) => { // routing needs to be on a server in order to run
