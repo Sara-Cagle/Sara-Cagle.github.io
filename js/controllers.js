@@ -38,7 +38,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
         };
     }])
 
-    .controller('hcdeProjectController', ['$location', ($location) => {
+    .controller('hcdeProjectController', ['$scope', '$location', ($scope, $location) => {
         /* HCDE 533 projects */
         this.projects = [
             {
@@ -113,10 +113,6 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             }
             return undefined;
         };
-
-
-
-
     }])
 
     .config(($routeProvider) => { // routing needs to be on a server in order to run
