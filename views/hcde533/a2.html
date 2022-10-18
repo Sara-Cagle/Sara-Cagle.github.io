@@ -37,7 +37,7 @@
     <p>
         <b>Trigonometry & Slot Placement</b>
         Unfortunately for me, who had made an aggressive effort to block out all
-        memories of trigonometry, was confronted by a massive monster: polygons are made out of triangles. <br />
+        memories of trigonometry, I was confronted by a massive monster: polygons are made out of triangles. <br />
         I knew exactly what I wanted but was struggling to get it: I needed to find the distance from the polygon center
         to the center of its edge, move my rectangle slot that far out in one plane, and then rotate it such that it
         touches the edge.<br />
@@ -62,7 +62,7 @@
         With the correct vocab words, I was able to find and use the given formulas to calculate <i>Ri</i>. No need to
         write a proof or simplify the expression, phew!<br />
         But as I toggled my input parameters for polygon size, my slot never intersected with the polygon edge! Long
-        story short, I spent hours looking at math because that seems like the most likely culprit.<br />
+        story short, I spent hours looking at math because that seemed like the most likely culprit.<br />
 
         It wasn't until reviewing the existing components in Grasshopper (with my newfound trig vocab) that I pinpointed
         the problem: I was measuring <i>Ri</i> with what I thought was the length of the polygon side. But in
@@ -73,7 +73,10 @@
             alt="Screenshot of the Grasshopper Polygon component, highlighting the radius input"><br />
 
         The math wasn't wrong at all--I was just using the wrong formula. Once I swapped it out based on the values I
-        had, the slots fit like a dream!
+        had, the slots fit like a dream!<br />
+        I'd also like to give credit to <a href="https://www.youtube.com/watch?v=QMI-sy0Dksg">this video on how to
+            rotate geometry in Grasshopper</a>, showing me how to rotate around the centroid of a polygon's geometry,
+        among other simple tricks.
     </p>
 </div>
 
@@ -83,7 +86,7 @@
             class="projectImage"
             alt="Several ovals cut out of paper and interlocked together, sitting on top of the sketch." />
         <br />
-        <span class="imageCaption">Grasshopper file, click to open full size.</span></a><br />
+        <span class="imageCaption">Grasshopper file, click to open full size image.</span></a><br />
     <p>Download Grasshopper File Here</p>
 </div>
 
@@ -108,31 +111,34 @@
     <p>
         <b>Grasshopper Limitations</b> My largest challenge outside of re-living trig class was bumping up against some
         of the programmatic limitations of Grasshopper. Particularly the lack of
+    </p>
     <ul>
         <li>Dynamic input to number sliders</li>
         <li>If/else conditionals</li>
     </ul>
-
-    These can easily both be created in Grasshopper and saved as clusters--and people probably have--but I decided I
-    would just throw caution to the wind and let my program exist without a few
-    fail-safes. My computer science professors from undergrad are gonna kick my butt if they read this.<br />
-    That said, attention must be paid when determining the size of the polygon and slots you'd like to create. Visually
-    the results are interesting, but cut with a laser, the pieces would completely fall through.
-    [put screenshots of the pretty circles here]
+    <p>
+        These can easily both be created in Grasshopper and saved as clusters--and people probably have--but I decided I
+        would just throw caution to the wind and let my program exist without a few
+        fail-safes. My computer science professors from undergrad are gonna kick my butt if they read this.<br />
+        That said, attention must be paid when determining the size of the polygon and slots you'd like to create.
+        Visually the results are interesting, but cut with a laser, the pieces would completely fall through.
     </p>
+    <img src="/images/hcde533/a2/circles.png" class="projectImage"
+        alt="Screenshot of some complex circular shapes that cannot be laser cut."><br />
 </div>
 
 <div class="groupedText">
     <p>
         <b>Laser Cutting - Fire in the Hole!</b> Using the same Epilog laser cutter and cardboard as my A1 assignment, I
-        ran
-        some cuts at 15%
-        speed and 85% power, which worked last time. Previously I had issues with a lossy backing on my cardboard so I
-        peeled the layer off prior to using the cutter, which helped immenseley. <br />
+        ran some cuts at 15% speed and 85% power, which worked last time. Previously I had issues with a lossy backing
+        on my cardboard so I peeled the layer off prior to using the cutter, which helped immenseley. <br />
+
+        <img src="/images/hcde533/a2/testcuts.jpg" class="projectImage"
+            alt="A collection of cardboard cutouts pieced together in 3D." /><br />
+        <span class="imageCaption">Some test cuts to ensure shape size and laser settings were
+            sufficient.</span><br /><br />
         Since I was cutting a larger batch, I used a larger piece of cardboard to try and cut all my shapes at
         once.<br />
-
-
 
         <img src="/images/hcde533/a2/printing3.jpg" class="projectImage"
             alt="Several ovals cut out of paper and interlocked together, sitting on top of the sketch." />
@@ -141,7 +147,8 @@
         <img src="/images/hcde533/a2/printing0.jpg" class="projectImage"
             alt="Several ovals cut out of paper and interlocked together, sitting on top of the sketch." />
         <br />
-        <span class="imageCaption">Cutting the larg sheet of cardboard. Cut order was still evading me.</span><br />
+        <span class="imageCaption">Cutting the larg sheet of cardboard. Cut order was still evading
+            me.</span><br /><br />
 
         As part of my safety training with the laser, we were warned that fire is not an "if" but a "when". I'm used to
         seeing my paper and cardboard burn a very tiny amount, but as my larger batch finished, the shapes hadn't all
@@ -162,7 +169,7 @@
         <img src="/images/hcde533/a2/burnt pieces.jpg" class="projectImage"
             alt="Several ovals cut out of paper and interlocked together, sitting on top of the sketch." /><br />
         <span class="imageCaption">Aftermath of the fire. No one was hurt and the laser was not damaged, but my largest
-            cardboard sheet was now ruined, along with several of my cut pieces.</span><br />
+            cardboard sheet was now ruined, along with several of my cut pieces.</span><br /><br />
 
 
 
@@ -182,9 +189,9 @@
     <ul>
         <li>
             Previously I was using small pieces of cardboard that were slightly warped. But the printing area was small
-            enough and I focused the laser on the warped section so the prints succeeded. This time I was using a piece
-            of cardboard that was almost the same size as the laser bed. This larger piece led for more room for the
-            laser to be out of focus, compared to the small piece. Even though the laser was focused, it was not focused
+            enough, and I focused the laser on the warped section so the prints succeeded. This time I was using a piece
+            of cardboard that was almost the same size as the laser bed. This larger piece had more room for the
+            laser to be out of focus compared to the small piece. Even though the laser was focused, it was not focused
             for the entirety of the piece, causing excess heat in some areas that led to the fire. <br />
             A comment for the Mill: when training there, the staff insisted it was not a big deal if the laser wasn't
             focused <i>perfectly</i>. I was mostly in agreement until now, and for safety's sake, I don't think the
@@ -193,29 +200,26 @@
         <li>
             I had run the same 15% speed 85% power cut twice in order to cut out my shapes. The Mill also advises this
             approach, but in the future I will be decreasing my power/increasing my speed on a second cut. I think on
-            its own this would not have been an issue, but coupled with the warped cardboard increased the fire risk.
+            its own this would not have been an issue, but coupled with the warped cardboard, the fire risk increased..
         </li>
-        <li>I had a couple instances of accidental double vector lines I was cutting--keep reading.</li>
+        <li>I also had a couple instances of accidental double vector lines I was cutting--keep reading.</li>
     </ul>
     <p>
         After the fire and cleaning the laser, I tested it again and had no issues with the machine. I proceeded to use
-        my
-        smaller pieces of cardboard and limit my area to roughly the same "warpedness" in the cardboard to ensure the
-        laser
-        stayed focused. Everything worked fine! Lessons learned!
+        my smaller pieces of cardboard and limit my area to roughly the same "warpedness" in the cardboard to ensure the
+        laser stayed focused. Everything worked fine! Lessons learned!
     </p>
-
 </div>
 
 <div class="groupedText">
     <p>
         <b>Converting Between Rhino & Inkscape</b>
         At one point my Grasshopper file only created curves in the 2D plane, but I extruded them for the assignment and
-        then tried to again break the extrusions back down for printing the face borders. In hindsite I would have
+        then tried to again break the extrusions back down for printing the face borders. In hindsight I would have
         stopped my program at the curve creation and just exported those into the .dxf file.<br />
         Working from the top view, I ended up selecting both the top and bottom faces to export because I could not see
         the duplication in the 2D plane. It wasn't until I was running the laser that I noticed the laser was following
-        multiple paths agains, indicating multiple of the same vectors.<br />
+        paths it had already cut, indicating multiple of the same vectors.<br />
         I tried again to carefully export only one set of faces but it was extremely time consuming. Further, in
         Inkscape, my closed paths exploded open and I had to select each path and combine them (ctrl K) to them make
         them easier to place.<br />
@@ -238,6 +242,9 @@
     <p>
         <b>Final Result</b>
     </p>
+    <img src="/images/hcde533/a2/rhino shape screenshot.png" class="projectImage"
+        alt="White rendering of the different shapes I planned to cut out." /><br />
+    <span class="imageCaption">Rendering of the shapes I decided to print.</span><br /><br />
     <img src="/images/hcde533/a2/creation0.jpg" class="projectImage"
         alt="Several ovals cut out of paper and interlocked together, sitting on top of the sketch." />
     <img src="/images/hcde533/a2/creation1.jpg" class="projectImage"
