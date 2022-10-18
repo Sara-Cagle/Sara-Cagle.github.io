@@ -47,10 +47,8 @@
 .projectImage {
     height: auto;
     max-width: 100%;
-}
-
-.imageCaption {
-    font-size: 0.875em;
+    /* Keeps image from stretching vertically in flex*/
+    align-self: center;
 }
 
 .centerFlexImages {
@@ -62,6 +60,5 @@
 
 .centerCaption {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
