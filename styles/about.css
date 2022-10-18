@@ -29,17 +29,9 @@
 
 }
 
+/* List style was stripped for header, adding back for text*/
 .groupedText ul {
     list-style-type: disc;
-    /*this is normally disc*/
-    list-style-position: inside;
-}
-
-.groupedText ul ul,
-ol ul {
-    list-style-type: disc;
-    /*this is normally disc*/
     list-style-position: inside;
     margin-left: 15px;
-    /*this is normally 15px*/
 }

@@ -52,3 +52,9 @@
 .imageCaption {
     font-size: 0.875em;
 }
+
+.imageAndCaption {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
