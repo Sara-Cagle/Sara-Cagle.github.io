@@ -49,13 +49,13 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a2',
-                title: 'A2 - 3D Printing',
-                description: 'TBD',
+                title: 'A2 - Parametric Modeling with Grasshopper - a Lesson in Safety',
+                description: 'Using Grasshopper to programmatically creating multiple pieces that can be interlocked and repeatable when laser cut out of cardboard. Pieces were modeled in Rhino 7 with Grasshopper and then laser cut on an Epilog Laser',
                 URL: '#/hcde533/a2',
             },
             {
                 id: 'a3',
-                title: 'A3 - Parametric Modeling with Grasshopper',
+                title: 'A3 -3D Printing',
                 description: 'TBD',
                 URL: '#/hcde533/a3',
             },
