@@ -34,4 +34,6 @@
     list-style-type: disc;
     list-style-position: inside;
     margin-left: 15px;
+    font-size: 18px;
+    line-height: 1.5;
 }
