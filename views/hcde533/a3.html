@@ -46,7 +46,90 @@
         </li>
     </ul>
     </p>
-    [put chart of objects and notes here.]
+    <table>
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Rhino thickness</th>
+                <th>Calipers Thickness</th>
+                <th>Extrusion Thickness</th>
+                <th>Wall Count</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Photo 1</td>
+                <td>Rhino thickness 1</td>
+                <td>Calipers Thickness 1</td>
+                <td>Extrusion Thickness 1</td>
+                <td>Wall Count 1</td>
+            </tr>
+            <tr>
+                <td>Photo 2</td>
+                <td>Rhino thickness 2</td>
+                <td>Calipers Thickness 2</td>
+                <td>Extrusion Thickness 2</td>
+                <td>Wall Count 2</td>
+            </tr>
+            <tr>
+                <td>Photo 3</td>
+                <td>Rhino thickness 3</td>
+                <td>Calipers Thickness 3</td>
+                <td>Extrusion Thickness 3</td>
+                <td>Wall Count 3</td>
+            </tr>
+            <tr>
+                <td>Photo 4</td>
+                <td>Rhino thickness 4</td>
+                <td>Calipers Thickness 4</td>
+                <td>Extrusion Thickness 4</td>
+                <td>Wall Count 4</td>
+            </tr>
+            <tr>
+                <td>Photo 5</td>
+                <td>Rhino thickness 5</td>
+                <td>Calipers Thickness 5</td>
+                <td>Extrusion Thickness 5</td>
+                <td>Wall Count 5</td>
+            </tr>
+            <tr>
+                <td>Photo 6</td>
+                <td>Rhino thickness 6</td>
+                <td>Calipers Thickness 6</td>
+                <td>Extrusion Thickness 6</td>
+                <td>Wall Count 6</td>
+            </tr>
+            <tr>
+                <td>Photo 7</td>
+                <td>Rhino thickness 7</td>
+                <td>Calipers Thickness 7</td>
+                <td>Extrusion Thickness 7</td>
+                <td>Wall Count 7</td>
+            </tr>
+            <tr>
+                <td>Photo 8</td>
+                <td>Rhino thickness 8</td>
+                <td>Calipers Thickness 8</td>
+                <td>Extrusion Thickness 8</td>
+                <td>Wall Count 8</td>
+            </tr>
+            <tr>
+                <td>Photo 9</td>
+                <td>Rhino thickness 9</td>
+                <td>Calipers Thickness 9</td>
+                <td>Extrusion Thickness 9</td>
+                <td>Wall Count 9</td>
+            </tr>
+            <tr>
+                <td>Photo 10</td>
+                <td>Rhino thickness 10</td>
+                <td>Calipers Thickness 10</td>
+                <td>Extrusion Thickness 10</td>
+                <td>Wall Count 10</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <div class="groupedText">
     <p><b>Nested Objects - Inspiration and Modeling in Rhino</b>
@@ -80,24 +163,34 @@
     <p>
         I started by listing out the pieces I would need: 3 tubes to become wheels, 4 small cylinders to become the
         static spacers, and 1 long cylinder to be the axel. I based their measurements on my existing plant stand wheels
-        with some rounding for easier math.
+        with some rounding for easier math.</p>
     <ul>
         <li>Wheels: 30mm outer diameter, 8mm inner diameter, 5mm depth</li>
         <li>Spacers: 10mm diameter (must be larger than 8mm so they hold the wheels apart), 3mm depth</li>
         <li>Axel: 5mm diameter (smaller than the wheel diameter to allow for it to roll), 30mm depth (length),
             calculated by summing the necessary widths as well as adding some wiggle room for the wheels.</li>
     </ul>
-    After creating these pieces, I attached the end caps to the axel by moving the objects to eachother using object
-    snap. I then used "Align" to align them concentrically (one of those trig words I learned from A2!)<br />
-    I then used the "Align" tool to align the 3 wheels and 2 other spacers. Once concentrically around the axel, I
-    spaced them out in the right order (end cap, wheel, spacer, wheel, spacer, wheel, end cap) and used the "Distribute"
-    tool in the Z-plane to have all of the pieces space themselves out. Align and distribute are my favorite Powerpoint
-    features, so using them was second nature. Finally I needed to join the static pieces into a single object rather
-    than multiple intersecting objects. <a href="https://youtu.be/KAnQ31657dg">This video on merging faces</a> showed me
-    to use the "Boolean Union" tool to bring the objects together. Finally, I grouped the wheel as a single entity so I
-    wouldn't accidentally drag it apart.<br />
-    I built it in the Z-plane like a sandwich, but knew I needed to rotate it 90 degrees so it was laying sideways to
-    limit the overhangs I would end up printing.
+    <p><b>Build Process</b>
+    <ol>
+        <li>After creating these pieces, I attached the end caps to the axel by moving the objects to eachother using
+            object snap.
+        </li>
+        <li>I then used "Align" to align them concentrically (one of those trig words I learned from A2!)</li>
+        <li>I then used the "Align" tool again to align the 3 wheels and 2 other spacers. </li>
+        <li>Once concentrically around the axel, I
+            spaced them out in the right order (end cap, wheel, spacer, wheel, spacer, wheel, end cap) and used the
+            "Distribute" tool in the Z-plane to have all of the pieces space themselves out. Align and distribute are my
+            favorite Powerpoint features, so using them was second nature.
+        </li>
+        <li>Finally I needed to join the static pieces into a single object rather
+            than multiple intersecting objects. <a href="https://youtu.be/KAnQ31657dg">This video on merging faces</a>
+            showed me to use the "Boolean Union" tool to bring the objects together.
+        </li>
+        <li>Finally, I grouped the wheel as a single entity so I wouldn't accidentally drag it apart.</li>
+        <li>I built it in the Z-plane like a sandwich, but knew I needed to rotate it 90 degrees so it was laying
+            sideways to limit the overhangs I would end up printing.
+        </li>
+    </ol>
     </p>
 
 </div>
