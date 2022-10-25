@@ -1,0 +1,103 @@
+<H1>A3 - Intro to 3D Printing</H1>
+
+
+<div class="groupedText">
+    <p><b>Prompt</b> Explore your 3D printer and print a nested object.
+    </p>
+</div>
+<div class="groupedText">
+    <p>
+        <b>Setting Up the Printer</b> Setting up the printer was simultaneously harder and easier than I expected. I
+        have never spent time putting together such precise devices before, so I was concerned one wrong move would
+        render the entire investment moot. However, putting the machine together made me much more comfortable with each
+        of the pieces and less concerned about looking at the machine wrong and causing it to malfunction. I was lucky
+        that once I had the machine together, everything just <i>worked</i>. It turned on the first try and homed
+        without any problems. However, some of the initial instructions and screws confused me and I turned to <a
+            href="https://youtu.be/ibsOYzXduYc">this video</a>. <br />
+        Leveling the bed for the first time was also miserable, but now that it is in its expected position, it's not
+        too challenging to confirm prior to each print. It reminds me of focusing a laser (for which if you read about
+        my fire for A2, you know I should now be a pro at completing the focus step!)
+    </p>
+</div>
+<div class="groupedText">
+    <p>
+        <b>Test Prints</b> I started with the recommended 2cm cubes as my first prints which were easy enough. Junchao
+        and I chatted about camping and glamping while we watched my printing run over Zoom. Getting the first cube off
+        of the glass bed was more challenging than I expected, and I ended up using way more force than I wanted to, so
+        I had to relevel the bed again (ugh). But it has since gotten a bit easier.
+    </p>
+    <p>
+        I moved on to cylinders and completely misunderstood the "Tube" command on Rhino as I struggled to make
+        concentric circles and then cap them the right way. After a couple of attempts, I spoke to my classmate Minah
+        Kim Bass about her print tests and she introduced me to the "Tube" command. Better late than never!<br />
+        I wasn't sure what size cylinders to test, so Junchao recommended I try creating cylinders with walls of 0.4mm
+        and 0.8mm width, which became my standard for various print tests.
+    </p>
+    <p><b>Challenges With Test Printing</b>
+    <ul>
+        <li>It's slow to run one print for each setting,</li>
+        <li>because I had accidentally set all of my prints to run at the highest quality.</li>
+        <li>
+            My print walls are so thin (albeit by design), that it is challenging to find much difference between them.
+        </li>
+        <li>
+            There's so many settings to toggle that I still don't have a good grasp of them (and I don't have enough
+            time or even PLA to explore <i>everything</i>.)
+        </li>
+    </ul>
+    </p>
+    [put chart of objects and notes here.]
+</div>
+<div class="groupedText">
+    <p><b>Nested Objects - Inspiration and Modeling in Rhino</b>
+        For my nested object, I struggled to think of something to create that was both interesting, simple, and not a
+        copy of someone else's work. My brain struggles to understand how these nested items can be designed and printed
+        together. I hunted around Thingiverse and looked at some <a
+            href="https://www.thingiverse.com/thing:167120">nested armour pieces</a> and recalled a video I saw some
+        weeks ago about a collapsable light saber. Minah showed me screenshots of her polagonal nested piece of art. But
+        none of these ideas sounded like <i>me.</i><br />
+        I finally turned to my boyfriend, who has built a car in his free time and owns his own 3D printer, to ask about
+        nested things I could
+        print. He listed off various mechanical items that were of no real interest to me, until he announced: "build
+        one of your plant stands with the wheels."<br />
+        That was it! I will build a mini plantstand with wheels. A table-top creation for some little teacup plants, not
+        my monster 100 pound plants who live outside.<br />
+        ...but maybe I should just start with the wheels, first.
+    </p>
+    <p>
+        So I took a look at a plant stand I have from Daiso with my calipers to get a rough idea of wheel measurements.
+        I wanted to
+        create a wheel that had:
+    <ul>
+        <li>3 rolling "wheel" pieces,</li>
+        <li>an axel for the "wheels" to roll freely around,</li>
+        <li>and static spacers attached to the axel between each "wheel" and one on each end.</li>
+    </ul>
+    This wheel would allow for movement of the wheel while maintaining a static axel, with the hope that a further piece
+    could be designed to fit around the axel to both protect the wheels from flipping, and also enable the wheel to be
+    mounted to a solid object, whether it be a piece of wood or something else 3D printed.
+    </p>
+    <p>
+        I started by listing out the pieces I would need: 3 tubes to become wheels, 4 small cylinders to become the
+        static spacers, and 1 long cylinder to be the axel. I based their measurements on my existing plant stand wheels
+        with some rounding for easier math.
+    <ul>
+        <li>Wheels: 30mm outer diameter, 8mm inner diameter, 5mm depth</li>
+        <li>Spacers: 10mm diameter (must be larger than 8mm so they hold the wheels apart), 3mm depth</li>
+        <li>Axel: 5mm diameter (smaller than the wheel diameter to allow for it to roll), 30mm depth (length),
+            calculated by summing the necessary widths as well as adding some wiggle room for the wheels.</li>
+    </ul>
+    After creating these pieces, I attached the end caps to the axel by moving the objects to eachother using object
+    snap. I then used "Align" to align them concentrically (one of those trig words I learned from A2!)<br />
+    I then used the "Align" tool to align the 3 wheels and 2 other spacers. Once concentrically around the axel, I
+    spaced them out in the right order (end cap, wheel, spacer, wheel, spacer, wheel, end cap) and used the "Distribute"
+    tool in the Z-plane to have all of the pieces space themselves out. Align and distribute are my favorite Powerpoint
+    features, so using them was second nature. Finally I needed to join the static pieces into a single object rather
+    than multiple intersecting objects. <a href="https://youtu.be/KAnQ31657dg">This video on merging faces</a> showed me
+    to use the "Boolean Union" tool to bring the objects together. Finally, I grouped the wheel as a single entity so I
+    wouldn't accidentally drag it apart.<br />
+    I built it in the Z-plane like a sandwich, but knew I needed to rotate it 90 degrees so it was laying sideways to
+    limit the overhangs I would end up printing.
+    </p>
+
+</div>
