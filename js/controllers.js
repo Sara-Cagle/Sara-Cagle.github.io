@@ -55,8 +55,8 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a3',
-                title: 'A3 -3D Printing',
-                description: 'TBD',
+                title: 'A3 -Intro to 3D Printing',
+                description: 'Building the Ender 3 Pro 3D printer, running and designing comparable test prints, and designing a simple one-piece wheel and axel.',
                 URL: '#/hcde533/a3',
             },
             {
