@@ -79,6 +79,10 @@ td {
     text-align: center;
 }
 
+.textCell {
+    padding: 5px;
+}
+
 /* .dataTable {
     border: 3px solid red;
 } */
