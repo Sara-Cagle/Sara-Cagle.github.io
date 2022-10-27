@@ -75,6 +75,10 @@ td {
     border-collapse: collapse;
 }
 
+.numberCell {
+    text-align: center;
+}
+
 /* .dataTable {
     border: 3px solid red;
 } */
