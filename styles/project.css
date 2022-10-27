@@ -67,6 +67,14 @@
     margin-bottom: 10px
 }
 
-.dataTable {
-    border: 3px solid red;
+
+table,
+th,
+td {
+    border: 3px solid blue;
+
 }
+
+/* .dataTable {
+    border: 3px solid red;
+} */
