@@ -61,13 +61,13 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a4',
-                title: 'A4 - Mesh & Lamps Part 1',
-                description: 'TBD',
+                title: 'A4 - Subtractive Manufacturing with the Bantam CNC Mill',
+                description: 'Designing and milling the pieces of a cube using Rhino, Grasshopper, KiCAD, and a Bantam CNC Mill',
                 URL: '#/hcde533/a4',
             },
             {
                 id: 'a5',
-                title: 'A5 - Molding & Casting Part 1, Lamps Part 2',
+                title: 'A5 - TBD',
                 description: 'TBD',
                 URL: '#/hcde533/a5',
             },
