@@ -1,0 +1,639 @@
+<H1>A4 - Subtractive Manufacturing with the Bantam CNC Mill</H1>
+
+
+<div class="groupedText">
+    <p><b>Prompt</b> Design a box that can be interlocked together in some way and then mill the box out of FR1 material
+        using the Bantam CNC Mill.
+    </p>
+</div>
+<div class="groupedText">
+    <p>
+        <b>Designing Boxes with Grasshopper the Hard Way</b>
+        Why do something the easy way when you can over engineer it the hard way? I attended class remotely this week
+        and did not have a chance to gauge the scale of the material and machinery I would be working with until I went
+        to the makerspace. As a result, I did not want to <i>box</i> (haha, get it?) myself into a specific sized box or
+        design. I felt Grasshopper would be a great way to address this problem so that once I have my material picked
+        out, I can create a box of any size.
+    </p>
+    <p>
+        I first started with a square for which I could toggle the width/height. This square would be a face for which I
+        would cut 6 of to make a cube. I then created rectangular "slots" with a toggleable width (the depth of the
+        material) and height that
+        I would use for the interlocking pieces of the box.<br />
+        Rather than designate how many slots I wanted on each side of the square, I decided it would be better for the
+        number of slots to be auto-determined by the space I wanted between each slot. I drafted a rough equation for
+        how I would calculate that.<br />
+        <i>b</i> = desired space between slots<br />
+        <i>w</i> = square width<br />
+        <i>G</i> = Height of slot + <i>b</i><br />
+        <i>N</i> = Number of slots = Floor(<i>w</i>/ <i>G</i>)<br />
+        This calculates the total number of possible slots and their space between for the given square size. Because we
+        calculate the slot size and their space between, we must subtract one of the spaces "between" since there will
+        be a slot at the end that is not followed by another slot.<br /><br />
+        I then needed to calculate the distance between the corner of the square and the slots, which I did with<br />
+        Distance from corner to first slot = (<i>w</i>-(<i>N*</i><i>G</i>- <i>b</i>))/2<br />
+        <br />
+        Because I was planning on making the slots symmetrical on the edge, I would divide the remaining space not taken
+        up by the slots by 2.
+    </p>
+    <p>
+        After coming up with this equation, I moved the first slot on a side into its desired location and then used a
+        linear array with the count of <i>N</i> and the distance of <i>G</i> to programatically create the slots down
+        the side.
+    </p>
+    <p>
+        I then moved the slots across the square by shifting by <i>w</i> and then rotated and moved them again, finally
+        each side of the square had slots.
+    </p>
+    <p>
+        The dogbones were much more challenging since they had to be manipulated seperately from the slots sinc they
+        were only needed on inner corners. I followed roughly the same placement approach as the slots, except I did so
+        with 2 small circles, for which the radius can be toggled.
+    </p>
+    <p>
+        With all the pieces in place, I was then stuck in "Trim" Hell. Very fitting for the spooky season. It took
+        several approaches to trimming regions and rejoining to end with all the required lines.<br />
+        I trimmed the "cut in" slots and the "cut out" slots from the square seperately, which ended up with curves that
+        overlapped eachother. I then had to "explode" the curves and used
+        <a href="https://parametricbydesign.com/grasshopper/how-tos/remove-duplicate-curves/">this tutorial</a>
+        on finding duplicate line segments so I could remove the dupes. On top of that, the segments needed to be
+        appropriately flattened before they could be marked as dupes--something I debugged all by myself!<br />
+        Finally I trimmed the dogbones out using that new joined curve of the slotted square.<br />
+        I think of everything, this part can be simplified somehow.<br />
+        Green indicates inputs, yellow indicates annotations, blue indicates slots/tabs, and pink indicates dogbones.
+    </p>
+    <div class="centerFlexImages">
+        <a href="/images/hcde533/a4/cube grasshopper.png" title="Larger Grasshopper Image, click to expand"><img
+                src="/images/hcde533/a4/cube grasshopper.png" class="projectImage"
+                alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." /></a>
+    </div>
+    <span class="centerCaption"><a href="/images/hcde533/a4/boxes with slots.gh">Grasshopper File download</a></span>
+</div>
+
+<div class="groupedText">
+    <p>
+        <b>Milling with Bantam</b>
+        To mill, I needed to export my Rhino files into DXF files of the cutting path and engraving paths. I then
+        imported these paths into KiCAD as User.Drawings (engravings) and Edge.Cuts (cutting paths). KiCAD could then
+        plot my files into Gerber files that the Bantam mill would understand as machine code. I had to take care to
+        ensure I was importing/exporting the correct layers so the machine would cut and engrave properly, something I
+        had trouble with that I'll share below.
+    </p>
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a4/kicad import.png" class="projectImage"
+            alt="Screenshot of the kicad import panel" />
+        <img src="/images/hcde533/a4/kicad design.png" class="projectImage"
+            alt="Screenshot of the imported cut and engraving designs in kicad" /><img
+            src="/images/hcde533/a4/kicad plot.png" class="projectImage" alt="Screenshot of the kicad plot panel" />
+    </div>
+    <span class="centerCaption">KiCAD interface<br /></span>
+    <p>
+        The KiCAD conversion process generates several files that need to be accounted for.
+    <ul>
+        <li> <a href="/images/hcde533/a4/kicad/kicad.kicad_pcb">KiCAD pcb file</a></li>
+        <li> <a href="/images/hcde533/a4/kicad/kicad.kicad_pro">KiCAD pro file</a></li>
+        <li> <a href="/images/hcde533/a4/kicad/kicad-Edge_Cuts.gbr">KiCAD Edge Cuts GBR file</a></li>
+        <li> <a href="/images/hcde533/a4/kicad/kicad-User_Drawings.gbr">KiCAD User Drawings GBR file</a></li>
+        <li> <a href="/images/hcde533/a4/kicad/kicad-job.gbrjob">KiCAD job GBRjob file</a></li>
+    </ul>
+    </p>
+
+    <p>
+        I moved on to cylinders and completely misunderstood the "Tube" command on Rhino as I struggled to make
+        concentric circles and then cap them the right way. After a couple of attempts, I spoke to my classmate Minah
+        Kim Bass about her print tests and she introduced me to the "Tube" command. Better late than never!<br />
+        I wasn't sure what size cylinders to test, so Junchao recommended I try creating cylinders with walls of 0.4mm
+        and 0.8mm width, which became my standard for various print tests.
+    </p>
+
+    <span class="centerCaption">
+        First test print versus my last test print of trying to put as many on the plate as I can.
+    </span>
+
+    <p><b>Challenges With Test Printing</b></p>
+    <ul>
+        <li>It's slow to run one print for each setting,</li>
+        <li>because I had accidentally set all of my prints to run at the highest quality.</li>
+        <li>
+            My print walls are so thin (albeit by design), that it is challenging to find much difference between them.
+        </li>
+        <li>
+            There's so many settings to toggle that I still don't have a good grasp of them (and I don't have enough
+            time or even PLA to explore <i>everything</i>.)
+        </li>
+    </ul>
+    <p>I found that reviewing <a
+            href="https://3dprinterly.com/cura-settings-ultimate-guide-settings-explained-how-to-use/">this document
+            with
+            indepth information on print settings from 3D Printerly</a> was more valuable to me than running and
+        comparing
+        test prints.
+    </p>
+    <br />
+    <table class="dataTable">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Rhino thickness</th>
+                <th>Calipers Thickness</th>
+                <th>Extrusion Thickness</th>
+                <th>Wall Count</th>
+                <th>Tolerance</th>
+                <th>Files</th>
+                <th style="width:40%;">Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="/images/hcde533/a3/test1.jpg"><img src="/images/hcde533/a3/test1.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">20mm</td>
+                <td class="numberCell">19.91mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/20x20 cube.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/CE3PRO_20x20 cube_low quality.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Low quality cube</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test2.jpg"><img src="/images/hcde533/a3/test2.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">20mm</td>
+                <td class="numberCell">19.85mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/20x20 cube.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/CE3PRO_20x20 cube_standard quality.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Standard quality cube</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test3.jpg"><img src="/images/hcde533/a3/test3.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">20mm</td>
+                <td class="numberCell">19.77mm</td>
+                <td class="numberCell">1.2mm</td>
+                <td class="numberCell">3</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/20x20 cube.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/CE3PRO_20x20 cube_super quality.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Super (highest) quality cube</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test 4.jpg"><img src="/images/hcde533/a3/test 4.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">-</td>
+                <td class="numberCell">6.85mm</td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/CE3PRO_3cm tube_0.4mm wall thickness_ wall line count 1.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Created without "Tube" function, unsure of Rhino measurements.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test5.jpg"><img src="/images/hcde533/a3/test5.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">-</td>
+                <td class="numberCell">6.22mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/CE3PRO_3cm tube_0.8 mm wall thickness_wall line count 1.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Created without "Tube" function, unsure of Rhino measurements.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test6.jpg"><img src="/images/hcde533/a3/test6.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.48mm</td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.44mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.4mm width.stl">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Bendy and flexible</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test7.jpg"><img src="/images/hcde533/a3/test7.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.93mm</td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Noticeably thicker than the 0.4mm tube. Has a slip down the side where the printer
+                    rotates back
+                    around.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test8.jpg"><img src="/images/hcde533/a3/test8.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.7mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.44mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 1.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Bendy and flexible</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test9.jpg"><img src="/images/hcde533/a3/test9.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.94mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">1</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 1.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Has a slip down the side where the printer rotates back around. The turnaround spot
+                    ends up having
+                    whispy pieces of plastic blown around.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test10.jpg"><img src="/images/hcde533/a3/test10.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.51mm</td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.44mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.4mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">-</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test11.jpg"><img src="/images/hcde533/a3/test11.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">1.01mm</td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.4mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Has a slip down the side where the printer rotates back around.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test12.jpg"><img src="/images/hcde533/a3/test12.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.61mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.44mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">-</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test13.jpg"><img src="/images/hcde533/a3/test13.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.98mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">-</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test14.jpg"><img src="/images/hcde533/a3/test14.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.48mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Spiralize</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test15.jpg"><img src="/images/hcde533/a3/test15.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.93mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.01mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a
+                                href="/images/hcde533/a3/3cm tube 0.4mm wall & 0.8mm wall_0.8mm wall thickness_wall line count 2.gcode">G
+                                Code file</a></li>
+                    </ul>
+                </td>
+                <td>Spiralize</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test16.jpg"><img src="/images/hcde533/a3/test16.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.61mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.001mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/8 different tubes.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">-</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test17.jpg"><img src="/images/hcde533/a3/test17.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.98mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.001mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/8 different tubes.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">-</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test18.jpg"><img src="/images/hcde533/a3/test18.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.4mm</td>
+                <td class="numberCell">0.61mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.1mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/8 different tubes.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Sides look chunky and rectangular, but mostly in the light.</td>
+            </tr>
+            <tr>
+                <td><a href="/images/hcde533/a3/test19.jpg"><img src="/images/hcde533/a3/test19.jpg"
+                            class="thumbnailImage" /></a></td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">0.95mm</td>
+                <td class="numberCell">0.8mm</td>
+                <td class="numberCell">2</td>
+                <td class="numberCell">0.1mm</td>
+                <td>
+                    <ul>
+                        <li><a href="/images/hcde533/a3/cube and tubes.3dm">Rhino file</a></li>
+                        <li><a href="/images/hcde533/a3/3cm tube 0.8mm width.stl">Cura file</a></li>
+                        <li><a href="/images/hcde533/a3/8 different tubes.gcode">G Code file</a></li>
+                    </ul>
+                </td>
+                <td class="textCell">Sides look chunky and rectangular, even moreso than the 0.4mm tube.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="groupedText">
+    <p><b>Nested Objects - Inspiration and Modeling in Rhino</b>
+        For my nested object, I struggled to think of something to create that was both interesting, simple, and not a
+        copy of someone else's work. My brain struggles to understand how these nested items can be designed and printed
+        together. I hunted around Thingiverse and looked at some <a
+            href="https://www.thingiverse.com/thing:167120">nested armour pieces</a> and recalled a video I saw some
+        weeks ago about a collapsable light saber. Minah showed me screenshots of her polagonal nested piece of art. But
+        none of these ideas sounded like <i>me.</i><br />
+        I finally turned to my boyfriend, who has built a car in his free time and owns his own 3D printer, to ask about
+        nested things I could
+        print. He listed off various mechanical items that were of no real interest to me, until he announced: "build
+        one of your plant stands with the wheels."<br />
+        That was it! I will build a mini plantstand with wheels. A table-top creation for some little teacup plants, not
+        my monster 100 pound plants who live outside.<br />
+        ...but maybe I should just start with the wheels, first.
+    </p>
+    <p>
+        So I took a look at a plant stand I have from Daiso with my calipers to get a rough idea of wheel measurements.
+        I wanted to create a wheel that had:</p>
+    <ul>
+        <li>3 rolling "wheel" pieces,</li>
+        <li>an axel for the "wheels" to roll freely around,</li>
+        <li>and static spacers attached to the axel between each "wheel" and one on each end.</li>
+    </ul>
+    <p>This wheel would allow for movement of the wheel while maintaining a static axel, with the hope that a further
+        piece could be designed to fit around the axel to both protect the wheels from flipping, and also enable the
+        wheel to be mounted to a solid object, whether it be a piece of wood or something else 3D printed.
+    </p>
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a3/plant stand.JPG" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+    </div>
+    <span class="centerCaption">Plant stand from Daiso, upside down to view the wheels.</span>
+    <p>
+        I started by listing out the pieces I would need: 3 tubes to become wheels, 4 small cylinders to become the
+        static spacers, and 1 long cylinder to be the axel. I based their measurements on my existing plant stand wheels
+        with some rounding for easier math.</p>
+    <ul>
+        <li>Wheels: 30mm outer diameter, 8mm inner diameter, 5mm depth</li>
+        <li>Spacers: 10mm diameter (must be larger than 8mm so they hold the wheels apart), 3mm depth</li>
+        <li>Axel: 5mm diameter (smaller than the wheel diameter to allow for it to roll), 30mm depth (length),
+            calculated by summing the necessary widths as well as adding some wiggle room for the wheels.</li>
+    </ul>
+    <p><b>Build Process</b>
+    <ol>
+        <li>After creating these pieces, I attached the end caps to the axel by moving the objects to eachother using
+            object snap.
+        </li>
+        <li>I then used "Align" to align them concentrically (one of those trig words I learned from A2!)</li>
+        <li>I then used the "Align" tool again to align the 3 wheels and 2 other spacers. </li>
+        <li>Once concentrically around the axel, I
+            spaced them out in the right order (end cap, wheel, spacer, wheel, spacer, wheel, end cap) and used the
+            "Distribute" tool in the Z-plane to have all of the pieces space themselves out. Align and distribute are my
+            favorite Powerpoint features, so using them was second nature.
+        </li>
+        <li>Finally I needed to join the static pieces into a single object rather
+            than multiple intersecting objects. <a href="https://youtu.be/KAnQ31657dg">This video on merging faces</a>
+            showed me to use the "Boolean Union" tool to bring the objects together.
+        </li>
+        <li>Finally, I grouped the wheel as a single entity so I wouldn't accidentally drag it apart.</li>
+        <li>I built it in the Z-plane like a sandwich, but knew I needed to rotate it 90 degrees so it was laying
+            sideways to limit the overhangs I would end up printing.
+        </li>
+    </ol>
+    </p>
+
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a3/wheel rhino.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel rhino2.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel rhino3.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+    </div>
+
+</div>
+
+<div class="groupedText">
+    <p><b>Printing the Wheel</b>
+        The biggest challenge was figuring out how to print the wheel to limit overhangs. Overhangs wasted PLA by
+        requiring support structures which would need to be broken off after. There are multiple settings to toggle that
+        can limit PLA usage and ease the "breaking off" process at the end of the print, yet a preview in Cura can only
+        show so much
+    </p>
+    <p>First iteration preview of the wheel: Standard quality, 0.8mm wall thickness, wall line
+        count of 2, supports everywhere, support pattern of lines and density of 8% for easier breakage.<br />
+
+        At some point near the mid-early stage of the print, a failure occurred and pulled away part of the wheel. The
+        wheel that remained was mostly satisfactory, so I toggled the settings a bit for the next try.<br />
+        However, I did find that the support structures were very challenging to break off for the successful part of
+        the print. After finally breaking off the supports, the single successful part of the print did spin like a
+        wheel!</p>
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a3/wheel cura.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel fail 1.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel fail 2.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel fail 3.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+    </div>
+    <span class="centerCaption"><a href="/images/hcde533/a3/wheel 0.gcode">G Code File</a></span>
+
+    <p>Second iteration preview of the wheel: Standard quality, 0.8mm wall thickness, wall line
+        count of 2, supports everywhere, support pattern of lines and density of 8% for easier breakage (all the same as
+        above). Turn on
+        spiralize contour for smoothness. Increased density from 10% to 20% to try and slow the nozzle to the wheel as
+        it moves. Change infill pattern from Lines to Concentric.<br />
+        The print did not fall apart in the printer this time! But even with increased density, the spiralized seemed to
+        weaken the object while creating extra supports. However, the supports at the bottom of the wheel where it
+        touched the bed remained very challenging to break off without breaking the wheel (as I ended up doing.)<br />
+        I think I should stick closer to the first print settings and maybe change the base from a skirt to a raft so
+        the pieces don't get ripped up and away.</p>
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a3/wheel cura2.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel print 2a.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel print 2b.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel print 2c.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel print 2d.jpg" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+    </div>
+    <span class="centerCaption"><a href="/images/hcde533/a3/wheel 1.gcode">G Code File</a></span>
+
+    <p>Following this, I made some changes to the model to make the wheels slightly thicker, the spacers slightly
+        smaller, and the axel shorter as well. If I ever wanted this to help support something, it would need to be more
+        condensed. I also opted to try some new support settings.</p>
+    <p>Super quality, 0.12mm wall thickness, wall line count of 3, supports everywhere using a raft and tree structure,
+        support pattern of lines and density of 8%. Infill density of 20%, top/bottom pattern of concentric.</p>
+
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a3/render1.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/render2.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+        <img src="/images/hcde533/a3/wheel cura3.png" class="projectImage"
+            alt="A large white diagram showing Grasshopper components, color coded with which items are inputs." />
+    </div>
+    <span class="centerCaption"><a href="/images/hcde533/a3/wheel2.gcode">G Code File</a></span>
+
+</div>
