@@ -127,7 +127,7 @@
         <img src="/images/hcde533/a4/bantam sample.png" class="projectImage"
             alt="Screenshot of the bantam milling set up" />
     </div>
-    <span class="centerCaption">KiCAD interface<br /></span>
+    <span class="centerCaption">KiCAD interface</span>
     <p>
         In the mill, I sandwich 2 pieces of FR1 with double sided tape, so that if the tool goes completely through my
         top later, it won't hurt the platform and instead hit my second piece of material. I then stick the material to
@@ -151,6 +151,62 @@
 <div class="groupedText">
     <p>
         <b>Challenges</b>
+    <ul>
+        <li>
+            When creating a dedicated shape to fit together, as opposed to just generic polygons that can be stacked in
+            any which way, the slots and tabs need to be offset from one another on opposite sides, rather than
+            identical to each other. I was first replicating designs from A1 and A2 before realizing my cube wouldn't
+            have any way to fit together if I did not offset my slots.
+        </li>
+        <li>
+            FR1 is very solid, not cardboard or paper that I'm used to working with. Tabs and slots of a precise size
+            may fit together in theory, even with dogbones, but they need a little more space to be placed into their
+            desired spot. I milled tabs and slots of exactly 4mm each but they wouldn't fit into eachother. I had to
+            change my design to have tabs of 4mm each and slots of 4.5 mm each.The pieces <i>then</i> fit together.
+        </li>
+        <li>
+            Working with a small milling tool is challenging since you need to accomodate for the short neck length of
+            the tool. Larger tools will be placed entirely in the collet and have enough of a head to mill properly, but
+            the 1/32" tool needed to be inserted only part way so that about an inch sticks out. This extra space leaves
+            room for you to scratch your material more or miss your material by not moving down far enough in the Z
+            plane (for which I did both.)
+            <div class="centerFlexImages">
+                <img src="/images/hcde533/a4/milled8.jpg" class="projectImage"
+                    alt="Milled piece of FR1 with a large scrape through the middle." />
+            </div>
+            <span class="centerCaption">Mill dragged itself across my material while homing.</span>
+        </li>
+        <li>
+            Tiny lines and tiny shapes are not always feasible to mill, at least with the tools we have on hand. All my
+            lines milled properly but many of my overlapping engraved designs looked terrible when engraved with the
+            1/32" head.
+            <div class="centerFlexImages">
+                <img src="/images/hcde533/a4/milled6.jpg" class="projectImage"
+                    alt="Milled piece of FR1 with sloppy round cuts." />
+            </div>
+            <span class="centerCaption">My pretty digital circles looking ugly in meatspace. I ended up simplifying my
+                design to improve the cutting.</span>
+        </li>
+        <li>
+            Double sided tape is a nightmare. I hurt my fingers trying to pry apart my pieces and ended up destroying
+            multiple pieces of FR1 in the process. This process isn't friendly for running test cuts because you can't
+            take off your pieces to look at them without destroying your material in the process.
+        </li>
+        <li>
+            Milling is not hard as a concept, but is mostly limiting by your milling tools (our class is going to
+            completely destroy the mill at this rate, breaking so many pieces), and your milling material.
+        </li>
+        <li>
+            The Bantam software for loading in engravings versus cuts is not very straightforward. I struggled with
+            getting Bantam to recognize my cuts as single cuts rather than hatches. As a result, my first cuts were
+            milled out multiple times and the slots and tabs were trimmed away too much to fit together.
+            <div class="centerFlexImages">
+                <img src="/images/hcde533/a4/milled7.jpg" class="projectImage"
+                    alt="Milled squares sitting next to a slice of FR1. The squares have mild cuts on the edges but would not fit together." />
+            </div>
+            <span class="centerCaption">Note the very large slots and very small tabs on these squares.</span>
+        </li>
+    </ul>
     </p>
 </div>
 
