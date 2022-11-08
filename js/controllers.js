@@ -67,13 +67,13 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a5',
-                title: 'A5 - TBD',
+                title: 'A5 - Getting Meshy - Playing with Meshes in Rhino',
                 description: 'TBD',
                 URL: '#/hcde533/a5',
             },
             {
                 id: 'a6',
-                title: 'A6 - Molding & Casting Part 2',
+                title: 'A6 - Lamp Design',
                 description: 'TBD',
                 URL: '#/hcde533/a6',
             },
