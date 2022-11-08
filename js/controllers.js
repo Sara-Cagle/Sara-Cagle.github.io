@@ -67,8 +67,8 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a5',
-                title: 'A5 - Getting Meshy - Playing with Meshes in Rhino',
-                description: 'TBD',
+                title: 'A5 - Getting Meshy - Mewtwo',
+                description: 'Using pre-existing STL files from Thingiverse to practice manipulating meshes on Rhino.',
                 URL: '#/hcde533/a5',
             },
             {
