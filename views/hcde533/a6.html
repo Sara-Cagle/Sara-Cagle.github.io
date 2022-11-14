@@ -184,14 +184,123 @@
     </div>
     <span class="centerCaption">Iteration 3 scales, flat and hanging together.</span>
     </p>
-    <p><b>Iteration 4</b> will be coming soon! The plan is to increase size a bit more to leave more room for the
-        mirror, shrink the keyhole a smidge, and do a test run of the inner lampshade with "spider like" flanges to hold
-        it in place.</p>
+    <p><b>Iteration 4 & 5</b>
+        With the general shape, I tried changing around neck thickess and the ball shape at the end of the neck. I found
+        that the neck often snapped when pulling the scales off the print bed, so I thickened it up a bit. I mostly
+        manipulated points along the curve individually and then mirrored the results over.<br />
+        I also felt the ball shape at the end of the neck had unecessary heft and could be trimmed down. I tried
+        swapping the sphere for something with a flat bottom.<br />
+        Since I was close to the final shape, I also started designing the inlet for the mirror component of the scales.
+        I was planning on ordering 1/8th inch thick acrylic so I designed the shape I wanted and added a smidge more
+        thickness than 1/8th inch to account for variance. I then used boolean difference to cut it out of the
+        scale.<br />
+        Now that my changes were becoming more granular and print times were taking longer, I tried rendering the fit of
+        my scales together in Rhino to avoid wasting print time. This was very challenging since gravity would play a
+        roll in holding the scales together. While I measured if the neck and head were the right size to fit into the
+        holes, I did not explore if there was a way to toggle gravity in Rhino.
+    </p>
+
+    <p>Iteration 4 worked better with the neck and fit well digitally, but upon printing, the new style head was too
+        small. The scales would fall out of eachother rather than hold in place.<br />
+        [some pics here]</p>
+
+    <p>Iteration 5 was my final iteration. I tweaked the neck some more and widened the head. The prints came out
+        functional!<br />
+        The neck and head were thicker and wider than I had originally envisioned, and I found it sort of hard to slide
+        the pieces together, but after some finnagling, I found a process that worked, and the tighter fit meant that
+        the scales weren't going to unhook any time soon!<br />
+        [some pics here]
+    </p>
+</div>
+
+<div class="groupedText">
+    <p><b>Inner Lampshade</b>
+        The inner lampshade was envisioned as a spherical shade with a cylinder on top that would have holes for the
+        scales to hook into. After running so many prints, however, I decided to save plastic and time that I would not
+        drape scales over the top of the shade as intended, and instead drape them only from the bottom.<br />
+        The outlet at the end of my lamp cable and the plastic head of the lamp were of different sizes, so I used my
+        calipers to measure the difference and create a hole in the top of the lampshade that allowed me to fit the plug
+        and cable through but was too small for the head of the lamp.<br />
+        I designed the initial spherical shape of the shade but then realized if I wanted to cover the lightbulb, I'd
+        need to include measurements for that as well. By needing to increase the height of the sphere to include the
+        bulb, I ended up creating a much larger sphere than originally expected.<br />
+        The bottom of the lampshade also needed to be wide enough to allow the plastic header of the lamp and the bulb
+        to slide into it, which initially gave me direction on where to slice the shade. I tried slicing the sphere at
+        different heights to explore what it might look like before deciding on what became the final shape.<br />
+        To create the shell shape of the lampshade, I did not realize "Shell" is a Rhino command, so I instead took the
+        diameter of the sphere and subtracted what I wanted to be the width of the wall (4mm) and created a sphere with
+        the diameter of that difference. I joined the shapes to create the form and then used "DupeFaceBorder" on the
+        top opening of the shade to extrude upwards as a small neck.<br />
+        For the keyholes, I used the same keyholes designed for the scales and placed them 5mm from the bottom of the
+        shade and then spread them in a polar array around the sliced circle. I played with the numbers but 20 seemed
+        about right. I originally toggled with the angle on these keyholes and I could have drawn them along the surface
+        of the shade, but I decided since these would be cut through that the angle didn't matter much, so I extreuded
+        them as they were and did a boolean difference to cut them from the shade.<br />
+        [pics of the design]
+    </p>
+    <p>
+        When slicing the shape in Cura, I was shocked when it said my print at the highest fidelity would take about 31
+        hours. I went back to Rhino and tried a few different slices of the shade to see if less material would make the
+        print faster, but ultimately the duration seemed to stem mostly from it being a sphere and requiring substantial
+        inner supports. My different slices of the sphere only decreased the time by a few hours at most, so I decided
+        to do the original plan anyways.<br />
+        For the supports, I opted for a tree structure and decreased the support fill to 5% (from my usual 8%) to use
+        less material and maybe go faster. I was going to be printing at the highest fidelity. I sent it off to the
+        printer and crossed my fingers. If this failed, I would have to change the shade style completely due to
+        time.<br />
+        Luckily, the shade printed almost perfectly! I checked on it in its early stages and some of the smaller
+        supports for the keyholes seemed iffy, but with the size of the print, I guess it was able to recover
+        itself.<br />
+        [pics of the design]
+    </p>
+</div>
+
+<div class="groupedText">
+    <p><b>Laser Cutting the Mirrors</b>
+        I visited TAP Plastics in Bellevue to find some mirror acrylic. I usually buy from
+        <a href="https://www.estreetplastics.com/Clear-Plexiglass-Acrylic-Sheets-1-8-Thick-s/27.htm">E Street
+            Plastics</a>
+        but the shipping time was not feasible for this project. I was able to get a 12x18 inch sheet cut at TAP for a
+        mostly reasonable price. I also bought some neon highlighter green for funsies, and dug through their $1
+        clearance bin for 12x12inch clear pieces.<br />
+        Since I had already created the shape of the mirror cutout on Rhino for the scale, I was able to use the lines
+        from that same shape. However, I was worried that the cuts wouldn't fit into the holes I created like when I
+        milled my box for A4. I used the scale tool and created a DXF file including the shape at 100%, 99%, 98% and 95%
+        size to cut and test with.<br />
+        At the laser, I toggled different settings and found even the recommended settings for 1/8 inch acrylic wasn't
+        strong enough to cut through in one pass! So instead I used it twice, and while it created a slightly larger
+        slice with the kerf, the shapes came out like a dream. I used the laser at 100% power and 8% speed (recommended)
+        at 600 DPI
+        and ran it twice.<br />
+        To my surprise (probably due to the kerf), the 100% sized pieces fit perfectly! So I prepared all the scaled
+        versions for nothing.<br />
+        [some pics of the test prints]
+    </p>
+    <p>
+        I then loaded up around 100 of these shapes into a file and ran the cut twice. I left the protective paper on
+        the mirror side of the acrylic to try and hold the pieces together and protect them from any smoke or debris. I
+        also lasered them on the backside in hopes it would impact the mirror less.<br />
+        But after 2 cuts, only about 20% of them fell free of the sheet like planned. Maybe the laser wasn't
+        focused the whole way across? After taking the acrylic out of the machine, I noticed it was warped. I'm pretty
+        sure it was flat when I started, though.<br />
+        I spent time popping the other pieces out by hand and removing the excess with some little snippers. I wasn't
+        going to get my ~100 pieces perfect, but I also likely wasn't going to need all 100 given the slow print time of
+        my scales.<br />
+        I used superglue to glue each piece into the divet on the scales. Most pieces fit snuggly without glue, but it
+        made me feel better to use it, just in case.
+        [print stuff]
+    </p>
+    <p>
+
+    </p>
 </div>
 
 <div class="groupedText">
     <p><b>Final Design</b>
-        Coming soon!
+        After several hours of designing, printing, cutting, and gluing, I had a lamp! Is it the lamp I designed? Uhhhh
+        sorta. But it was a valuable experience in time management and expectation management. And obviously I learned a
+        ton, too.<br />
+        [pics]
     </p>
 </div>
 
