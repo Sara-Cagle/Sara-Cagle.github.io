@@ -73,8 +73,8 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a6',
-                title: 'A6 - Lamp Design',
-                description: 'TBD',
+                title: 'A6 - Lamp Design - "Fish Scale" 3D Printed and Laser Cut Lamp',
+                description: 'Creating a lamp inspired by fish scales, including designing the scales, connection mechanism, and an inner shade in Rhino, and manufacturing the pieces with a 3D printer and laser cutter.',
                 URL: '#/hcde533/a6',
             },
             {
