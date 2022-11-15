@@ -73,13 +73,13 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a6',
-                title: 'A6 - Lamp Design - "Fish Scale" 3D Printed and Laser Cut Lamp',
+                title: 'A6 Part A - Lamp Design - "Fish Scale" 3D Printed and Laser Cut Lamp',
                 description: 'Creating a lamp inspired by fish scales, including designing the scales, connection mechanism, and an inner shade in Rhino, and manufacturing the pieces with a 3D printer and laser cutter.',
                 URL: '#/hcde533/a6',
             },
             {
                 id: 'a6b',
-                title: 'A6 Part B- Molding & Casting - Fox Pattern Weight',
+                title: 'A6 Part B - Molding & Casting - Fox Pattern Weight',
                 description: 'Creating a collection of pattern weights from a fox file found on Thingiverse. Mold was designed in Rhino to place seams on organic curves of the model, 3D printed, and then cast into silicon to create the final mold.',
                 URL: '#/hcde533/a6b',
             },
