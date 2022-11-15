@@ -79,7 +79,7 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a6b',
-                title: 'A6 part B- Molding & Casting - Fox Pattern Weight',
+                title: 'A6 Part B- Molding & Casting - Fox Pattern Weight',
                 description: 'Creating a collection of pattern weights from a fox file found on Thingiverse. Mold was designed in Rhino to place seams on organic curves of the model, 3D printed, and then cast into silicon to create the final mold.',
                 URL: '#/hcde533/a6b',
             },
