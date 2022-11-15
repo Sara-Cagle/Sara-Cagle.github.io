@@ -78,6 +78,12 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
                 URL: '#/hcde533/a6',
             },
             {
+                id: 'a6b',
+                title: 'A6 part B- Molding & Casting - Fox Pattern Weight',
+                description: 'Creating a collection of pattern weights from a fox file found on Thingiverse. Mold was designed in Rhino to place seams on organic curves of the model, 3D printed, and then cast into silicon to create the final mold.',
+                URL: '#/hcde533/a6b',
+            },
+            {
                 id: 'a7',
                 title: 'A7 - Final Project Proposal',
                 description: 'TBD',
@@ -163,6 +169,10 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             })
             .when('/hcde533/a6', {
                 templateUrl: 'views/hcde533/a6.html',
+                controller: 'contentController',
+            })
+            .when('/hcde533/a6b', {
+                templateUrl: 'views/hcde533/a6b.html',
                 controller: 'contentController',
             })
             .when('/hcde533/a7', {
