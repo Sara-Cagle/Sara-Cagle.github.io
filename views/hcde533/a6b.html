@@ -43,12 +43,14 @@
         geometry seemed too tough and my split function kept failing.
 
     <div class="centerFlexImages">
-        <img src="/images/hcde533/a6/sketch1.jpg" class="projectImage"
-            alt="Rough sketch that is unclear, but has the word 'mirror' written on it" />
-        <img src="/images/hcde533/a6/sketch.jpg" class="projectImage"
-            alt="Rough sketch of lampshade on graph paper outlining scale design and plans for the light" />
+        <img src="/images/hcde533/a6b/fox0.png" class="projectImage"
+            alt="Fox with a plane through the side of it from one angle." />
+        <img src="/images/hcde533/a6b/fox1.png" class="projectImage"
+            alt="Fox with a plane through the side of it from the opposite angle." />
+        <img src="/images/hcde533/a6b/fox2.png" class="projectImage"
+            alt="The fox with a plane through it next to a copy of each new split side of the fox." />
     </div>
-    <span class="centerCaption">Sketch</span>
+    <span class="centerCaption">Slicing the fox with a plane from a pair of lofted lines I drew</span>
     </p>
 </div>
 
@@ -58,16 +60,6 @@
         features (like eyes and a nose) that I didn't want. So before I split it, I reduced the mesh of it multiple
         times to try and force some of the fidelity out. I then used quad remesh to make it smoother, as I found with my
         A5 mesh assignment.
-
-    <div class="centerFlexImages">
-        <img src="/images/hcde533/a6/iteration1/0.png" class="projectImage"
-            alt="Screenshot of a rhino rendering of the bounding lines for the scale." />
-        <img src="/images/hcde533/a6/iteration1/2.png" class="projectImage"
-            alt="Screenshot of the rhino rendering of the scale." />
-        <img src="/images/hcde533/a6/iteration1/1.png" class="projectImage"
-            alt="Screenshot of the rhino top view of the scale." />
-    </div>
-    <span class="centerCaption">Rhino renderings of the first iteration of scales</span>
     </p>
 
 </div>
@@ -76,36 +68,67 @@
     <p><b>Designing the mold (was a nightmare)</b>
         Now that I had the fox split into 2 pieces, I needed to create the mold-negative (is that the word?) But I
         really struggled to wrap my head around how that would look. Danli posted a diagram for us in the class chat
-        about the process, and I referred back to it frequently throughout this assignment.<br />
-        First I needed to create a ribbon offset of each half of the fox. However, I found the ribbon offset tool didn't
-        work well with the seam being in 3D, so I attempted to make my own ribbon offset by duplicating the face edge,
-        scaling it in 1D, manipulating the points independently, and then lofting that line to try and create the
-        desired edge shape. Several hours later, though, I was in mesh hell and was ready to give up on my squiggly seam
-        and just do something basic.<br />
-        Luckily I was able to connect with Junchao during office hours, who approached the problem the exact same way I
-        did at first (that must mean I'm doing something right!) but after much hullaballoo, he met the same fate.<br />
-        As we were reviewing the original model again, the idea dawned on him: we already had this surface slicing the
-        pieces apart--why don't we just use that as the extended surface, rather than create a new offset? Genius!<br />
-        From there, we stretched the plane wider and ensured it encompassed all pieces of the fox. Previously, the plane
-        would clip the tail if extended, but Junchao showed me that I could turn points on for a surface and use those
-        points to drag the surface around, which fixed the clipping issue. With the plane stretched wide, we then put a
-        box around the fox (like Dr. Seuss haha) and sliced the box, removing the sliced edge of the fox and leaving
-        only the front and back pieces. This was a piece I struggled with initially because I thought for Cura to print,
-        the object needed to be fully attached to everything. More on this later.<br />
+        about the process, and I referred back to it frequently throughout this assignment.
 
-        Once in 2 pieces, I opted for a multipipe fitting across the edge of my mold. While most classmates are doing
-        notches or spheres, I've had trouble using simple keys like that in the past, and with the jiggly
-        nature of silicon, I wanted something that spanned the length of my mold rather than just a few notches.
-        (However Junchao still recommended I use at least one sphere, which I think will help with orientation, so no
-        harm.)<br />
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/mold process.png" class="projectImage"
+            alt="An edited diagram showing 4 steps to creating a mold the way we were asked to do for the assignment." />
+    </div>
+    <span class="centerCaption">Thank you Danli.</span>
 
-        Finally, my mold-negative was done! Or was it? I ended office hours with Junchao pleased with my mold, but then
-        I was confused again--the object I was looking at was what the silicon mold would look like... not the negative
-        of it. I needed to invert it. After much stressing I asked Junchao--the obvious answer was in plain sight: just
-        delete the faces that are closing it in. (And then I also had to make new faces around it on the other side so
-        it would sit flat in the printer.)<br />
-        How can everything be so obvious yet so confusing at the same time? I love 3D fabrication--why can't I
-        <i>think</i> in 3D?
+    First I needed to create a ribbon offset of each half of the fox. However, I found the ribbon offset tool didn't
+    work well with the seam being in 3D, so I attempted to make my own ribbon offset by duplicating the face edge,
+    scaling it in 1D, manipulating the points independently, and then lofting that line to try and create the
+    desired edge shape. Several hours later, though, I was in mesh hell and was ready to give up on my squiggly seam
+    and just do something basic.
+
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/fox3.png" class="projectImage"
+            alt="Screenshot of multiple fox outlines nested inside eachother. One pair is lofted." />
+    </div>
+    <span class="centerCaption">Some of many different iterations of creating a loft for the fox's ribbon offset</span>
+
+    Luckily I was able to connect with Junchao during office hours, who approached the problem the exact same way I
+    did at first (that must mean I'm doing something right!) but after much hullaballoo, he met the same fate.<br />
+    As we were reviewing the original model again, the idea dawned on him: we already had this surface slicing the
+    pieces apart--why don't we just use that as the extended surface, rather than create a new offset? Genius!<br />
+    From there, we stretched the plane wider and ensured it encompassed all pieces of the fox. Previously, the plane
+    would clip the tail if extended, but Junchao showed me that I could turn points on for a surface and use those
+    points to drag the surface around, which fixed the clipping issue. With the plane stretched wide, we then put a
+    box around the fox (like Dr. Seuss haha) and sliced the box, removing the sliced edge of the fox and leaving
+    only the front and back pieces. This was a piece I struggled with initially because I thought for Cura to print,
+    the object needed to be fully attached to everything. More on this later.
+
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/fox7.png" class="projectImage" alt="X-ray view of a box showing a fox inside." />
+    </div>
+    <span class="centerCaption">Using the X-Ray view on all my screens to see inside the box.</span>
+
+    Once in 2 pieces, I opted for a multipipe fitting across the edge of my mold. While most classmates are doing
+    notches or spheres, I've had trouble using simple keys like that in the past, and with the jiggly
+    nature of silicon, I wanted something that spanned the length of my mold rather than just a few notches.
+    (However Junchao still recommended I use at least one sphere, which I think will help with orientation, so no
+    harm.)
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/fox6.png" class="projectImage"
+            alt="Fox inside the box with a pipe around the edge." />
+    </div>
+    <span class="centerCaption">Fox in a box! Peep the multipipe.</span>
+
+    Finally, my mold-negative was done! Or was it? I ended office hours with Junchao pleased with my mold, but then
+    I was confused again--the object I was looking at was what the silicon mold would look like... not the negative
+    of it. I needed to invert it. After much stressing I asked Junchao--the obvious answer was in plain sight: just
+    delete the faces that are closing it in. (And then I also had to make new faces around it on the other side so
+    it would sit flat in the printer.)<br />
+    How can everything be so obvious yet so confusing at the same time? I love 3D fabrication--why can't I
+    <i>think</i> in 3D?
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/fox8.png" class="projectImage"
+            alt="Two halves of the fox mold, except the fox is inverted such that this is what the silicon mold should look like." />
+        <img src="/images/hcde533/a6b/fox9.png" class="projectImage"
+            alt="Two halves of the fox mold where the fox is facing the right way such that this is what should be printed as the mold-negative" />
+    </div>
+    <span class="centerCaption">Left: bad! Fox is the wrong way. Right: good! Fox is the right way.</span>
 
     </p>
 </div>
@@ -119,9 +142,16 @@
         take 3 days--yikes! Even after dropping quality settings and infills, I was looking at an over 24hr print job.
         However, I scaled it down to 35% in Cura, on low quality, with 8% infill, I was looking at about 2 hours of
         print time, which is more than fine since I'd be running it over night.<br />
-        I levelled the bed and ran the print!<br />
+        I levelled the bed and ran the print! (Side note, I see a lot of stress about bed levelling in the class chat. I
+        level my bed essentially before every single print and I have had no issues.)<br />
         I very much prefer taking the extra time to run my prints in the highest fidelity, but knowing this is just a
         test run, I had no choice but to be satisfied with the outcome. My tiny mold printed out as expected.
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a6b/fox5.png" class="projectImage" alt="Screenshot of the mold shrunk down in Cura" />
+        <img src="/images/hcde533/a6b/fox10.jpg" class="projectImage"
+            alt="Photo of the two halves of the mold-negative, mini size" />
+    </div>
+    <span class="centerCaption">Cura and the mini print.</span>
     </p>
     <p>
         I will be printing a larger version for part 2 of this assignment.
@@ -138,12 +168,9 @@
 <div class="groupedText">
     <p><b>Files</b>
     <ul>
-        <li><a href="/images/hcde533/a6/iteration1/iteration1.3dm">Scale Iteration 1 .3dm</a></li>
-        <li><a href="/images/hcde533/a6/iteration1/scale0.stl">Scale Iteration 1 .STL</a></li>
-        <li><a href="/images/hcde533/a6/iteration2/iteration2.3dm">Scale Iteration 2 .3dm</a></li>
-        <li><a href="/images/hcde533/a6/iteration2/iteration2.stl">Scale Iteration 2 .STL</a></li>
-        <li><a href="/images/hcde533/a6/iteration3/iteration3.3dm">Scale Iteration 3 .3dm</a></li>
-        <li><a href="/images/hcde533/a6/iteration3/iteration3.stl">Scale Iteration 3 .STL</a></li>
+        <li><a href="/images/hcde533/a6b/fox.3dm">Fox .3dm</a> (is a mess to look at, but it's all there!)</li>
+        <li><a href="/images/hcde533/a6b/fox mold.stl">Fox mold-negative .STL</a></li>
+        <li><a href="/images/hcde533/a6b/fox mold.gcode">Fox mold-negative G Code (35% size)</a></li>
     </ul>
     </p>
 </div>
