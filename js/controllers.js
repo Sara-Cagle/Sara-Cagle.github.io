@@ -85,14 +85,14 @@ angular.module('PortfolioApp', ['ngRoute', 'ngAnimate'])
             },
             {
                 id: 'a7',
-                title: 'A7 - Final Project Proposal',
-                description: 'TBD',
+                title: 'A7 - Final Project Proposal - An exploration in digital fabrication in fashion',
+                description: 'Outling the inspiration, phases, and planning of my final project.',
                 URL: '#/hcde533/a7',
             },
             {
                 id: 'a8',
-                title: 'A8 - Final Project',
-                description: 'TBD',
+                title: 'A8 - Final Project - An exploration in digital fabrication in fashion',
+                description: 'A parametrically designed garment using laser cutting and 3D printing.',
                 URL: '#/hcde533/a8',
             },
         ];
