@@ -114,41 +114,75 @@
 
     <p><b>The Neckpiece - Rhino and Grasshopper (Again)</b> To design the "scales" for 3D printing on fabric, I used
         Grasshopper to generate grids of different sized rectangles. After baking a design I liked, I would use the
-        Rhino scale function to achieve different measurements (like the previously mentioned 1.5mm gap.) <br /><br />
-        For the piece that would wrap around my shoulder, I knew I'd need different shapes to flow in different ways to
-        capture the curve of a shoulder. I first made a rough pattern of my shoulder by covering my shoulder and top of
-        arm with masking tape. I then directed my boyfriend to draw guidelines on it, such as a line across the top for
-        the flat part and a curve around the round part of the shoulder. I then took it off and measured those pieces
-        flat to know which sizes I should target.<br /><br />
-        Back in Grasshopper, I knew I wanted something radial, so I created a circle and tried to draw various polygons
-        within it to get the look I wanted. I finally ended up using the 2D "Radial" grid component with the circle and
-        then building off the cells and points. This was the only way I was able to generate "rectangles" that were
-        relatively sized around the circle without writing an expression. Using the "Distance" and "Larger Than"
-        components, I was able to scale the rectangles to be larger the further away they are from the center of the
-        circle. I baked the results into Rhino and did some refining to remove overlaps, straighten some lines, remove
-        some pieces, and scale in different factors as I tested the print.<br /><br />
-        Closing in on the final, I decided I did not like the flat surface I was printing. I drew some curves and lofted
-        them onto my print designs, both the rectangles and the radial grid. The curves added a nice dimension that was
-        originally missing.<br /><br />
-        When creating the design that would replace the front part of the collar, I tried reusing the shoulder radial
-        pieces, but the scale looked poor. Instead, I drew some circles and then scaled them to a shape based on my
-        measurements. I then took a collection of my original rectangle pieces and used "Flow" to move them along the
-        curve--I wish I had explored this option sooner! This front piece would be split into 3 pieces for printing, and
-        then the back piece would be split into 2 down the middle. I finally had completed the design!
+        Rhino scale function to achieve different measurements (like the previously mentioned 1.5mm gap.)
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a8/rectangular grid grasshopper.png" />
+    </div>
+    <span class="centerCaption">Grasshopper file for creating a grid of rectangles</span>
+    <br /><br />
+    For the piece that would wrap around my shoulder, I knew I'd need different shapes to flow in different ways to
+    capture the curve of a shoulder. I first made a rough pattern of my shoulder by covering my shoulder and top of
+    arm with masking tape. I then directed my boyfriend to draw guidelines on it, such as a line across the top for
+    the flat part and a curve around the round part of the shoulder. I then took it off and measured those pieces
+    flat to know which sizes I should target.<br /><br />
+    Back in Grasshopper, I knew I wanted something radial, so I created a circle and tried to draw various polygons
+    within it to get the look I wanted. I finally ended up using the 2D "Radial" grid component with the circle and
+    then building off the cells and points. This was the only way I was able to generate "rectangles" that were
+    relatively sized around the circle without writing an expression. Using the "Distance" and "Larger Than"
+    components, I was able to scale the rectangles to be larger the further away they are from the center of the
+    circle. I baked the results into Rhino and did some refining to remove overlaps, straighten some lines, remove
+    some pieces, and scale in different factors as I tested the print.
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a8/shoulder shape.png" />
+    </div>
+    <span class="centerCaption">Grasshopper file for creating a grid of rectangles</span>
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a8/radial grid grasshopper.png" />
+    </div>
+    <span class="centerCaption">Grasshopper file for creating radial rectangles</span>
+    <br /><br />
+    Closing in on the final, I decided I did not like the flat surface I was printing. I drew some curves and lofted
+    them onto my print designs, both the rectangles and the radial grid. The curves added a nice dimension that was
+    originally missing.
+    <div class="centerFlexImages">
+        <img src="/images/hcde533/a8/curved shape rhino.png" />
+    </div>
+    <span class="centerCaption"></span>
+    <br /><br />
+    When creating the design that would replace the front part of the collar, I tried reusing the shoulder
+    radial
+    pieces, but the scale looked poor. Instead, I drew some circles and then scaled them to a shape based on my
+    measurements. I then took a collection of my original rectangle pieces and used "Flow" to move them along
+    the
+    curve--I wish I had explored this option sooner! This front piece would be split into 3 pieces for printing,
+    and
+    then the back piece would be split into 2 down the middle. I finally had completed the design!
     </p>
 
-    <p><b>Putting it All Together - Sewing & Post Processing</b> Taking on a fabric-based project always means sewing.
+    <p><b>Putting it All Together - Sewing & Post Processing</b> Taking on a fabric-based project always means
+        sewing.
         After my 3D prints on tulle had completed, I trimmed one edge at a time and then hand-sewed them
         together.<br /><br />
-        However, the hardest part was attaching the tulle to the elliptical layers on the sleeves. Because I laser cut
-        20 pieces individually to size, I needed to attach each piece perfectly. I placed the black cut sleeve fabric on
-        cardboard and stretched the ellipses out, pinning each to hold it firm. I then used Gorilla Spray Adhesive to
-        spray it, and added each layer one-by-one, starting with the smallest and stacking on top. This built the
-        sleeves from the inside out, and they would be flipped over when worn. The adhesive was messy and not always
-        strong enough, and I went over layers multiple times and tried re-pinning layers to encourage them to dry
-        together. The tulle was so exact that it was hard to place perfectly. Were I to do this again, I would cut the
+        However, the hardest part was attaching the tulle to the elliptical layers on the sleeves. Because I
+        laser
+        cut
+        20 pieces individually to size, I needed to attach each piece perfectly. I placed the black cut sleeve
+        fabric on
+        cardboard and stretched the ellipses out, pinning each to hold it firm. I then used Gorilla Spray
+        Adhesive
+        to
+        spray it, and added each layer one-by-one, starting with the smallest and stacking on top. This built
+        the
+        sleeves from the inside out, and they would be flipped over when worn. The adhesive was messy and not
+        always
+        strong enough, and I went over layers multiple times and tried re-pinning layers to encourage them to
+        dry
+        together. The tulle was so exact that it was hard to place perfectly. Were I to do this again, I would
+        cut
+        the
         tulle larger than needed, glue, and then go back and remove the excess by hand. In a perfect world, this
-        attachment would be done by sewing machine, yet the laser allowed me to cut indescribably thin pieces of fabric
+        attachment would be done by sewing machine, yet the laser allowed me to cut indescribably thin pieces of
+        fabric
         that would get caught up in my machine.
     <div class="centerFlexImages">
         <img src="/images/hcde533/a8/gluing1.jpg" />
@@ -165,7 +199,8 @@
     <span class="centerCaption">Brought in to finish airing out and check design--beautifully layered!</span>
 
     <br /><br />
-    After drying, the sleeves were hand-sewn to the shoulder pieces. The shoulder pieces were hand-sewn to the front
+    After drying, the sleeves were hand-sewn to the shoulder pieces. The shoulder pieces were hand-sewn to the
+    front
     and back collar pieces, and a small hook was hand sewn to the collar on the back to keep it closed.
     </p>
 </div>
@@ -174,17 +209,22 @@
     <p>
         <b>Challenges</b>
     <ul>
-        I got really sick. A large chunk of this project period I was unable to function, which set me back several
+        I got really sick. A large chunk of this project period I was unable to function, which set me back
+        several
         days. Ultimately I only completed Phase 1 of my project, but it was beyond my control.
     </ul>
     <ul>
-        3D printing requires planning time, but also contingency planning time. I planned out my print time for my
+        3D printing requires planning time, but also contingency planning time. I planned out my print time for
+        my
         designs, but I did not factor in failure and time to re-print my designs after my testing phase.
     </ul>
     <ul>
         Exploring in Grasshopper is harder than it looks. Over the past 10 weeks I've been watching Grasshopper
-        tutorials to fall asleep at night. I've learned so much, but when starting my own design from scratch, it's
-        challenging to find the tools you want. Grasshopper components don't work the way I think traditionally or even
+        tutorials to fall asleep at night. I've learned so much, but when starting my own design from scratch,
+        it's
+        challenging to find the tools you want. Grasshopper components don't work the way I think traditionally
+        or
+        even
         as a programmer, so I spend a lot of time looking in the wrong place or trying poor methods to achieve
         something.
     </ul>
@@ -217,13 +257,17 @@
     <ul>
         <li>Sleeves (Rhino) (Grasshopper) (SVG/Inkscape) (PDF)</li>
         <li>Black Sleeves Print (SVG/Inkscape) (PDF)</li>
-        <li>White Tulle Sleeves Print (SVG/Inkscape 1) (PDF 1) | (SVG/Inkscape 2) (PDF 2) | (SVG/Inkscape 3) (PDF 3) |
+        <li>White Tulle Sleeves Print (SVG/Inkscape 1) (PDF 1) | (SVG/Inkscape 2) (PDF 2) | (SVG/Inkscape 3)
+            (PDF 3)
+            |
             (SVG/Inkscape 4) (PDF 4) </li>
         <li>Fabric Print Designs (Rhino) (Grasshopper)</li>
         <li>Shoulder Fabric Print Design (rectangle) (GCode)</li>
         <li>Shoulder Fabric Print Design (radial) (GCode)</li>
         <li>Collar Design (Rhino) (GCode it. 1) | (GCode it. 2) | (GCode it. 3)</li>
-        <li>Collar Fabric Print Design (Rhino) (GCode front part 1 & 2) | (GCode front part 3) | (GCode back part 1) |
+        <li>Collar Fabric Print Design (Rhino) (GCode front part 1 & 2) | (GCode front part 3) | (GCode back
+            part 1)
+            |
             (GCode back part 2)</li>
     </ul>
     </p>
@@ -234,10 +278,12 @@
         <b>Resources</b>
     <ul>
         <li><a href="https://www.youtube.com/watch?v=wFnmDRfl10M">Rhino flow along curve</a></li>
-        <li><a href="https://www.grasshopper3d.com/forum/topics/selecting-rectangle-points">Grasshopper select rectangle
+        <li><a href="https://www.grasshopper3d.com/forum/topics/selecting-rectangle-points">Grasshopper select
+                rectangle
                 points</a></li>
         <li><a href="https://www.youtube.com/watch?v=7O9-eWcjOQ0">Grasshopper geometric tranformations</a></li>
-        <li><a href="https://www.geeetech.com/blog/2018/02/3d-printing-on-fabric-is-easier-than-you-think/">3D printing
+        <li><a href="https://www.geeetech.com/blog/2018/02/3d-printing-on-fabric-is-easier-than-you-think/">3D
+                printing
                 on fabric</a></li>
         <li><a href="https://www.instructables.com/How-to-3D-Print-Onto-Fabric/">3D printing on fabric</a></li>
         <li><a href="https://www.youtube.com/watch?v=izKtAsdn24Y">Grasshopper creating pattern logic</a></li>
@@ -246,21 +292,31 @@
                 splitting coordinates into branches</a></li>
         <li><a href="https://www.grasshopper3d.com/forum/topics/split-divide-curve-at-specific-points">Grasshopper
                 splitting curves</a></li>
-        <li><a href="https://3dprinterly.com/how-to-use-cura-pause-at-height-a-quick-guide/">Cura pause at height</a>
+        <li><a href="https://3dprinterly.com/how-to-use-cura-pause-at-height-a-quick-guide/">Cura pause at
+                height</a>
         </li>
-        <li><a href="https://discourse.mcneel.com/t/how-to-insert-a-picture/44440">Rhino insert a picture</a></li>
-        <li><a href="https://www.thingiverse.com/thing:1256452">Thingiverse bust of a woman (originally tried to use for
+        <li><a href="https://discourse.mcneel.com/t/how-to-insert-a-picture/44440">Rhino insert a picture</a>
+        </li>
+        <li><a href="https://www.thingiverse.com/thing:1256452">Thingiverse bust of a woman (originally tried to
+                use
+                for
                 modeling collar)</a></li>
-        <li><a href="https://discourse.mcneel.com/t/snap-points-to-the-nearest/70968/3">Grasshopper snap point to
+        <li><a href="https://discourse.mcneel.com/t/snap-points-to-the-nearest/70968/3">Grasshopper snap point
+                to
                 nearest</a></li>
         <li><a href="https://www.grasshopper3d.com/forum/topics/find-point-of-intersection-of-two-curves">Grasshopper
                 find intersection of two curves</a></li>
-        <li><a href="https://discourse.mcneel.com/t/how-to-insert-a-picture/44440">Rhino insert a picture</a></li>
-        <li><a href="https://discourse.mcneel.com/t/scale-a-linear-array-to-a-set-distance/132677/3">Grasshopper scale
+        <li><a href="https://discourse.mcneel.com/t/how-to-insert-a-picture/44440">Rhino insert a picture</a>
+        </li>
+        <li><a href="https://discourse.mcneel.com/t/scale-a-linear-array-to-a-set-distance/132677/3">Grasshopper
+                scale
                 an array to a set distance</a></li>
-        <li><a href="https://discourse.mcneel.com/t/tan-tan-tan-ellipse/67352">Grasshopper tan tan tan ellipse</a></li>
+        <li><a href="https://discourse.mcneel.com/t/tan-tan-tan-ellipse/67352">Grasshopper tan tan tan
+                ellipse</a>
+        </li>
         <li><a href="https://www.youtube.com/watch?v=aBucmPd9R9I">Grasshopper ellipse</a></li>
-        <li><a href="https://www.youtube.com/watch?v=hNr6jUyZMWo">Grasshopper if/then statements for dual gradients</a>
+        <li><a href="https://www.youtube.com/watch?v=hNr6jUyZMWo">Grasshopper if/then statements for dual
+                gradients</a>
         </li>
         <li><a href="https://www.youtube.com/watch?v=X8w9s2hcHb0">Grasshopper data filtering and conditional
                 operations</a>
@@ -275,7 +331,8 @@
         </li>
         <li><a href="https://www.youtube.com/watch?v=uRPohPlDuzc">Grasshopper interpolating curves</a>
         </li>
-        <li><a href="https://www.youtube.com/watch?v=jt_pqUCSZlM">Grasshopper interpolating curvers and NURB curves</a>
+        <li><a href="https://www.youtube.com/watch?v=jt_pqUCSZlM">Grasshopper interpolating curvers and NURB
+                curves</a>
         </li>
         <li><a href="https://www.youtube.com/watch?v=Cb7py_dSS44">Grasshopper how to use Anemone</a>
         </li>
