@@ -21,9 +21,9 @@
 <div class="groupedText">
     <p><b>Sleeves - Designing Parametrically with Grasshopper and Rhino</b> I used Grasshopper to parametrically create
         the elliptical patterns for each sleeve. I used the "InEllipse" component that creates an ellipse out of 3
-        points. I then generated a toggleable amount of points around the X axis using then "expression" component that
-        would then be used to create my ellipses. I scaled the ellipses and offset the result to create a shape (rather
-        than a single line) that could be cut with the laser. From there, I baked the geometry into Rhino.
+        points. I then generated a toggleable amount of points around the X axis using the "expression" component that
+        would be used to create my ellipses. I scaled the ellipses and offset the result to create a shape (rather
+        than a single line) that could be cut with the laser. From there, I baked the geometry into Rhino.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/sleeve ellipses grasshopper.png" />
     </div>
@@ -36,27 +36,27 @@
     <br />
     <br />
 
-    In Rhino, I played around with different trimming styles to design the type of shape I wanted. Because all the
-    ellipses were overlapping on one side, their segments needed to be trimmed out to create a coherent shape. I
-    tested out two different cut styles: one with the ellipses cut without any overlapping segments such that the
-    result would be flat, and another where the line segments extended beyond the cut ellipse, causing the ellipses
-    to be more layered. The second approach better fit my design. I also used Rhino to create the buffer zones on
-    the ellipses to allow room for the sleeves to be sewn to the printed neckpiece.
+    <p> In Rhino, I played around with different trimming styles to design the type of shape I wanted. Because all the
+        ellipses were overlapping on one side, their segments needed to be trimmed out to create a coherent shape. I
+        tested out two different cut styles: one with the ellipses cut without any overlapping segments such that the
+        result would be flat, and another where the line segments extended beyond the cut ellipse, causing the ellipses
+        to be more layered. The second approach better fit my design. I also used Rhino to create the buffer zones on
+        the ellipses to allow room for the sleeves to be sewn to the printed neckpiece.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/sleeve shape rhino0.png" />
     </div>
     <span class="centerCaption">Ellipses baked into different layers to better evaluate where to trim.</span>
     <br /><br />
-    Finally, I needed the design for the inner mesh for each sleeve. I broke the geometry into each ellipse and then
-    used "TweenCurves" to get a middle curve to work with. I would use these middle curves directly for cutting the
-    mesh.
+    <p>Finally, I needed the design for the inner mesh for each sleeve. I broke the geometry into each ellipse and then
+        used "TweenCurves" to get a middle curve to work with. I would use these middle curves directly for cutting the
+        mesh.
     </p>
 
     <p><b>Sleeves - Laser Cutting with the Epilog</b> I cut several layers of fabric in the size of the laser bed and
         then headed to Microsoft's makerspace, The Garage. <br />
         I first used large sheets of butcher paper cut to the size of the laser bed to practice cutting the sleeve
         shapes. This was how I was able to gauge the length I wanted, the number of ellipses I wanted, as well as the
-        cut style previously mentioned.
+        cut style previously mentioned.</p>
 
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/paperprototype0.jpg" />
@@ -72,31 +72,32 @@
     <span class="centerCaption">After cutting</span>
     <br />
     <br />
-    In Rhino, I prepared my cuts by drawing a 24x18in rectangle on a different layer and locking the layer. This
-    would be the laser bed that I needed to fit within or splice between. Luckily I was able to fit individual cuts
-    into a single copy of the bed--no splicing across cuts. I also used these bed outlines for exporting my
-    geometries, particularly the mesh pieces, for which I needed to cut 20 total.
+    <p>In Rhino, I prepared my cuts by drawing a 24x18in rectangle on a different layer and locking the layer. This
+        would be the laser bed that I needed to fit within or splice between. Luckily I was able to fit individual cuts
+        into a single copy of the bed--no splicing across cuts. I also used these bed outlines for exporting my
+        geometries, particularly the mesh pieces, for which I needed to cut 20 total.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/sleeve shape rhino1.png" />
     </div>
     <span class="centerCaption">Mesh pieces ready to export</span>
     <br /><br />
-    After paper prototyping and determining sizing, I tested with some scrap black cotton I had to fiddle with laser
-    settings. The cotton sliced perfectly. Then I was able to move to my specific sleeve fabric, which also cut
-    without any issues.
+    <p>After paper prototyping and determining sizing, I tested with some scrap black cotton to hone the laser settings.
+        The cotton sliced perfectly. Then I was able to move to my polyester sleeve fabric, which also cut
+        without any issues.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/blackfabric0.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/blackfabric4.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/blackfabric1.jpg" />
     </div>
-    <span class="centerCaption">Cotton fabric and suiting: speed 25%, power 30%</span>
+    <span class="centerCaption">Cotton fabric and polyester suiting: speed 25%, power 30%</span>
     <br /><br />
-    However, the mesh tulle was much more challenging. I was prepared for issues of the mesh flying around due to
-    the ventilation fan, so I used painters tape to tape across the material. This held the fabric down, but the
-    laser was too strong and ended up singeing the edges, ruining the shapes. I noticed that the areas taped however
-    had a nice crisp edge. To fix the issue, I decided that since I would be taping the fabric anyways to weigh it
-    down, I would just mask the entire sheets with painters tape, which worked well enough. I tried some other
-    techniques along the way of sandwiching with butcher paper, but edges still ended up being singed.
+    <p>However, the mesh tulle was much more challenging. I was prepared for issues of the mesh flying around due to
+        the ventilation fan, so I used painter's tape to tape across the material. This held the fabric down, but the
+        laser was too strong and ended up singeing the edges, ruining the shapes. I noticed that the areas taped however
+        had a nice crisp edge. To fix the issue, I decided that since I would be taping the fabric anyways to weigh it
+        down, I would just mask the entire sheets with painter's tape, which worked well enough. I had also tried some
+        other
+        techniques like sandwiching the material with butcher paper, but edges still ended up being singed.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/tulle1.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/tulle0.jpg" />
@@ -119,19 +120,20 @@
         gap</span>
     <br /><br />
 
-    However, despite a handful of iterations on the collar shape, the design was functional but not pleasing to the
-    eye. Since I was behind schedule and not planning on hitting Phase 4, I took a different route and removed the
-    LED stock parts, despite their perfect fit. Instead, I moved on to my other idea: 3D printing a neckpiece design
-    on black tulle. This would serve almost the exact same function as the original design. I needed something to
-    wrap around my shoulders and allow the sleeves
-    to be connected to it.<br /><br />
+    <p>However, despite a handful of iterations on the collar shape, the design was functional but not pleasing to the
+        eye. Since I was behind schedule and not planning on hitting Phase 4, I took a different route and removed the
+        LED stock parts, despite their perfect fit. Instead, I moved on to my other idea: 3D printing a neckpiece design
+        on black tulle. This would serve almost the exact same function as the original design. I needed something to
+        wrap around my shoulders and allow the sleeves
+        to be connected to it.<br /><br />
 
-    I began experimenting printing rectangles on different pieces of fabric. Using Cura, I was able to set a
-    post-processing script that allowed me to pause the GCode print at either a specific layer or a height so I
-    could insert a piece of fabric. Since I was experimenting with different shapes and sizes, I opted for the layer
-    choice. Pausing at layer 3 to 5 appeared to be ideal. I also found that printed designs were best flexible and
-    visually appealing with a gap of about 0.8 to 1.5mm between each shape. Any smaller and it couldn't move well,
-    and any larger it was not coherent.
+        I began experimenting printing rectangles on different pieces of fabric. Using Cura, I was able to set a
+        post-processing script that allowed me to pause the GCode print at either a specific layer or a height so I
+        could insert a piece of fabric. Since I was experimenting with different shapes and sizes, I opted for the layer
+        choice. Pausing at layer 3 to 5 appeared to be ideal. I also found that printed designs were best flexible and
+        visually appealing with a gap of about 0.8 to 1.5mm between each shape. Any smaller and it couldn't move well
+        and any larger the design was not coherent.
+    </p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/fabric test print0.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/fabric test print1.jpg" />
@@ -140,12 +142,12 @@
     <span class="centerCaption">Early stages of printing on mesh</span>
 
     <br /><br />
-    I practiced printing with a thicker, wide-holed mesh as well as my tulle and both worked fine. Attaching the
-    fabric to the printer was the most challenging part. I originally tried tape but the heated bed weakens the
-    glue. Using binder clips to secure a large cut of fabric over the board worked the best, as long as you handled
-    the clips with care (while adding or removing a clip, the bed is prone to slipping and will throw off the print
-    layers). Unfortunately this means wasting more fabric than desired, since the fabric needs to stretch all the
-    way across the bed but not all of it will be printed on.
+    <p> I practiced printing with a thicker, wide-holed mesh as well as my tulle and both worked fine. Attaching the
+        fabric to the printer was the most challenging part. I originally tried tape but the heated bed weakens the
+        glue. Using binder clips to secure a large cut of fabric over the bed worked the best, as long as you handled
+        the clips with care (while adding or removing a clip, the bed is prone to slipping and will throw off the print
+        layers). Unfortunately this means wasting more fabric than desired, since the fabric needs to stretch all the
+        way across the bed even though not all of it will be printed on.</p>
 
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/fabric printing0.jpg" />
@@ -155,17 +157,20 @@
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/printing on fabric1.gif" />
     </div>
-    <span class="centerCaption">Clamping down tulle for better layering</span>
+    <span class="centerCaption">Comparing types of printed shapes on fabric</span>
 
-    As I printed my pieces, I noticed that prints with small scales, such as my 3mm by 9.5mm rectangles, were
-    <i>much</i> more likely to break. The bottoms of the rectangles stayed stuck to the bed while the
-    scales popped off the top of the fabric. Due to lack of time to repeatedly reprint large pieces, I tried various
-    post processing techniques to repair the broken scales such as using a low temp hot glue gun to
-    hold the scales in place and then reattach the backs, or sewing another piece of tulle to the back to repair ripped
-    mesh. Finally, I tried stopping the print twice, once at about 3 layers and again at about 6 layers,
-    and placing pieces of tulle in between those layers. Then the print would have 2 pieces of fabric to provide a
-    buffer from the bed in case the very bottom of the prints failed. This was successful and I used this technique for
-    about half my prints.
+    <p>As I printed my pieces, I noticed that prints with small scales, such as my 3mm by 9.5mm rectangles, were
+        <i>much</i> more likely to break. The bottoms of the rectangles stayed stuck to the bed while the
+        scales popped off the top of the fabric. Due to lack of time to repeatedly reprint large pieces, I tried various
+        post processing techniques to repair the broken scales such as using a low temp hot glue gun to
+        hold the scales in place and then reattach the backs, or sewing another piece of tulle to the back to repair
+        ripped
+        mesh. Finally, I tried stopping the print twice, once at about 3 layers and again at about 6 layers,
+        and placing pieces of tulle in between those layers. Then the print would have 2 pieces of fabric to provide a
+        buffer from the bed in case the very bottom of the prints failed. This was successful and I used this technique
+        for
+        about half my prints.
+    </p>
 
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/print failure1.jpg" />
@@ -176,24 +181,25 @@
 
     <p><b>The Neckpiece - Rhino and Grasshopper (Again)</b> To design the "scales" for 3D printing on fabric, I used
         Grasshopper to generate grids of different sized rectangles. After baking a design I liked, I would use the
-        Rhino scale function to achieve different measurements (like the previously mentioned 1.5mm gap.)
+        Rhino scale function to achieve different measurements (like the previously mentioned 1.5mm gap.)</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/rectangular grid grasshopper.png" />
     </div>
     <span class="centerCaption">Grasshopper file for creating a grid of rectangles</span>
     <br /><br />
-    For the piece that would wrap around my shoulder, I knew I'd need different shapes to flow in different ways to
-    capture the curve of a shoulder. I first made a rough pattern of my shoulder by covering my shoulder and top of
-    arm with masking tape. I then directed my boyfriend to draw guidelines on it, such as a line across the top for
-    the flat part and a curve around the round part of the shoulder. I then took it off and measured those pieces
-    flat to know which sizes I should target.<br /><br />
-    Back in Grasshopper, I knew I wanted something radial, so I created a circle and tried to draw various polygons
-    within it to get the look I wanted. I finally ended up using the 2D "Radial" grid component with the circle and
-    then building off the cells and points. This was the only way I was able to generate "rectangles" that were
-    relatively sized around the circle without writing an expression. Using the "Distance" and "Larger Than"
-    components, I was able to scale the rectangles to be larger the further away they are from the center of the
-    circle. I baked the results into Rhino and did some refining to remove overlaps, straighten some lines, remove
-    some pieces, and scale in different factors as I tested the print.
+    <p>For the piece that would wrap around my shoulder, I knew I'd need different shapes to flow in different ways to
+        capture the curve of a shoulder. I first made a rough pattern of my shoulder by covering my shoulder and top of
+        arm with masking tape. I then drew guidelines on it, such as a line across the top for
+        the flat part and a curve around the round part of the shoulder. I took it off and measured those pieces
+        flat to know which sizes I should target. This is a common technique for pattern drafting odd
+        shapes.<br /><br />
+        Back in Grasshopper, I knew I wanted something radial, so I created a circle and tried to draw various polygons
+        within it to get the look I wanted. I finally ended up using the 2D "Radial" grid component with the circle and
+        then building off the cells and points. This was the only way I was able to generate "rectangles" that were
+        relatively sized around the circle without writing an expression. Using the "Distance" and "Larger Than"
+        components, I was able to scale the rectangles to be larger the further away they are from the center of the
+        circle. I baked the results into Rhino and did some refining to remove overlaps, straighten some lines, remove
+        some pieces, and scale in different factors as I tested the print.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/radial grid grasshopper.png" />
     </div>
@@ -204,19 +210,22 @@
     <span class="centerCaption">Iterations of the radial shoulder piece</span>
 
     <br /><br />
-    Closing in on the final, I decided I did not like the flat surface I was printing. I drew some curves and lofted
-    them onto my print designs, both the rectangles and the radial grid. The curves added a nice dimension that was
-    originally missing.
+    <p>Closing in on the final, I decided I did not like the flat surface I was printing. I drew some curves and lofted
+        them onto my print designs, both the rectangles and the radial grid. The curves added a nice dimension that was
+        originally missing.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/curved shape rhino.png" />
     </div>
     <span class="centerCaption"></span>
     <br /><br />
-    When creating the design that would replace the front part of the collar, I tried reusing the shoulder
-    radial pieces, but the scale looked poor. Instead, I drew some circles and then scaled them to a shape based on my
-    measurements. I then took a collection of my original rectangle pieces and used "Flow" to move them along
-    the curve--I wish I had explored this option sooner! This front piece would be split into 3 pieces for printing,
-    and then the back piece would be split into 2 down the middle. I finally had completed the design!
+    <p>When creating the design that would replace the front part of the collar, I tried reusing the shoulder
+        radial pieces, but the scale of the shape looked poor. Instead, I drew some circles and then scaled them to a
+        shape based on
+        my measurements across my collar bone. I then took a collection of my original rectangle pieces and used "Flow"
+        to move them along
+        the curve--I wish I had explored this option sooner! "Flow" automatically managed the relative size of the
+        pieces as they moved around the curve. This front piece would be split into 3 pieces for printing,
+        and then the back piece would be split into 2 down the middle. I finally had completed the design!</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/collar shape rhino.png" />
     </div>
@@ -239,9 +248,10 @@
         <img class="projectImage" src="/images/hcde533/a8/gluing7.jpg" />
     </div>
     <span class="centerCaption">Gluing by lantern light in the frigid garage</span>
-    After flattening the sleeves under heavy objects and then ironing them under
-    a thin piece of cotton, I used a bit of hot glue to attach any remaining pieces of tulle that had come off. I
-    originally planned to hand-sew problem areas, but the spray adhesive had made the fabric too thick to work with.
+    <p>After flattening the sleeves under heavy objects and then ironing them under
+        a thin piece of cotton, I used a bit of hot glue to attach any remaining pieces of tulle that had come off. I
+        originally planned to hand-sew problem areas, but the spray adhesive had made the fabric too thick to work with.
+    </p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/ironing.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/wing.gif" />
@@ -249,10 +259,12 @@
     <span class="centerCaption"></span>
     <br /><br />
 
-    After drying, the sleeves were hand-sewn to the shoulder pieces. The shoulder pieces were hand-sewn to the
-    front and back collar pieces. The closure in the back was created by taking extra suiting fabric to bind the raw
-    tulle edge and then sewing a hook and eye to it. As the 3D prints on tulle finished, I hand-sewed them together
-    trimmed them one edge at a time.
+    <p>After drying, the sleeves were hand-sewn to the shoulder pieces. The shoulder pieces were hand-sewn to the
+        front and back collar pieces. The closure in the back was created by taking extra suiting fabric to bind the raw
+        tulle edge and then sewing a hook and eye to it. (I wish I had laser cut the suiting fabric for this binding
+        because it frayed terribly when I cut it. But the laser burns the edges perfectly to keep the fraying at bay.)
+        As the 3D prints on tulle finished, I hand-sewed them together
+        trimmed them one edge at a time.</p>
     <div class="centerFlexImages">
         <img class="projectImage" src="/images/hcde533/a8/sewing0.jpg" />
         <img class="projectImage" src="/images/hcde533/a8/sewing1.jpg" />
@@ -270,6 +282,7 @@
 <div class="groupedText">
     <p>
         <b>Tools Used</b>
+    </p>
     <ul>
         <li>Epilog Laser Cutter</li>
         <li>Creality Ender 3 Pro 3D Printer</li>
@@ -285,8 +298,8 @@
         <li>Gorilla Spray Adhesive</li>
         <li>Low temp hot glue gun</li>
     </ul>
-    Many of the items on my <a href="https://sara-cagle.github.io/#/hcde533/a7">Bill of Materials</a> was not used
-    because they were for further phases that I did not get to.
+    <p>Many of the items on my <a href="https://sara-cagle.github.io/#/hcde533/a7">Bill of Materials</a> were not used
+        because they were for further phases that I did not get to.
     </p>
 </div>
 
